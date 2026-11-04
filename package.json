@@ -4,7 +4,7 @@
   "private": true,
   "description": "Concept website for Captain Media (video, fotografie & design)",
   "scripts": {
-    "build": "node build.mjs",
+    "build": "node build.mjs --public",
     "start": "node server.js",
     "dev": "node build.mjs && node server.js"
   },

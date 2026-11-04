@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync, copyFileSync, rmSync, existsSync } from "node:fs";
+import { mkdirSync, writeFileSync, copyFileSync, cpSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { site, pillars, services, cases, steps } from "./src/data.mjs";
@@ -684,3 +684,11 @@ mkdirSync(join(ROOT, "assets/vendor"), { recursive: true });
 copyFileSync(join(ROOT, "node_modules/motion/dist/motion.js"), join(ROOT, "assets/vendor/motion.js"));
 
 console.log(`Built ${4 + cases.length + services.length + 1} pages.`);
+
+if (process.argv.includes("--public")) {
+  const out = join(ROOT, "public");
+  rmSync(out, { recursive: true, force: true });
+  const entries = ["index.html", "cases.html", "diensten.html", "over-ons.html", "contact.html", "cases", "diensten", "assets"];
+  for (const e of entries) cpSync(join(ROOT, e), join(out, e), { recursive: true });
+  console.log("Copied site to public/ for deployment.");
+}
