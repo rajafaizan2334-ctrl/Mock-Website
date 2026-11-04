@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Captain Media | Cinematografische Video, Fotografie & Design</title>
+  <meta name="description" content="Captain Media is een full-service mediabureau gespecialiseerd in high-end video, fotografie en grafisch ontwerp. Wij vertalen jouw verhaal naar beelden met impact.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B0D12'/><circle cx='50' cy='50' r='35' stroke='%23D4FF00' stroke-width='8' fill='none'/><polygon points='42,32 68,50 42,68' fill='%23D4FF00'/></svg>">
+
+  <!-- Google Fonts: Syne & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            carbon: '#090B0E',
+            surface: '#141722',
+            neon: {
+              DEFAULT: '#D4FF00',
+              hover: '#E3FF4D',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Syne"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-carbon text-white font-sans antialiased overflow-x-hidden selection:bg-neon selection:text-black">
+
+  <!-- Ambient Cinematic Grain & Glow Orbs -->
+  <div class="fixed inset-0 pointer-events-none z-50 opacity-25 grain-overlay"></div>
+  <div class="fixed -top-40 -left-40 w-96 h-96 bg-neon/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="fixed top-1/2 -right-40 w-[30rem] h-[30rem] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <!-- Custom Floating Cursor for Desktop -->
+  <div id="custom-cursor" class="custom-cursor hidden md:block"></div>
+  <div id="custom-cursor-follower" class="custom-cursor-follower hidden md:block"></div>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 py-5 px-6 lg:px-12 backdrop-blur-md bg-carbon/75 border-b border-white/5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#hero" class="group flex items-center gap-3 text-xl lg:text-2xl font-display font-extrabold tracking-tight text-white focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center group-hover:border-neon transition-colors duration-300 relative overflow-hidden shadow-glow-sm">
+          <span class="absolute inset-0 bg-gradient-to-tr from-neon/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          <svg class="w-5 h-5 text-neon transition-transform group-hover:scale-110 duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="leading-none text-white tracking-wider flex items-center gap-1.5">
+            CAPTAIN <span class="text-neon text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-neon/10 border border-neon/30">STUDIO</span>
+          </span>
+          <span class="text-[10px] font-mono tracking-widest text-zinc-400 uppercase mt-0.5">Media & Content</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+        <a href="cases.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">
+          Cases
+          <span class="nav-indicator"></span>
+        </a>
+
+        <!-- Services Menu with 3-Column Dropdown -->
+        <div class="relative group" id="diensten-menu-container">
+          <button id="diensten-btn" class="nav-link flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors py-2 focus:outline-none" aria-expanded="false" aria-haspopup="true">
+            Diensten
+            <i class="ph ph-caret-down text-xs transition-transform duration-300 group-hover:rotate-180 text-neon"></i>
+            <span class="nav-indicator"></span>
+          </button>
+
+          <!-- 3-Column Mega Dropdown Panel -->
+          <div class="mega-dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[840px] p-6 rounded-2xl bg-surface/95 backdrop-blur-2xl border border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+            <div class="grid grid-cols-3 gap-6">
+              
+              <!-- Column 1: Video -->
+              <div class="mega-col bg-white/[0.02] p-4 rounded-xl border border-white/5 hover:border-neon/30 transition-all">
+                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
+                  <div class="w-8 h-8 rounded-lg bg-neon/10 flex items-center justify-center text-neon">
+                    <i class="ph-bold ph-video-camera text-base"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Video</h4>
+                    <span class="text-[11px] text-zinc-400">Cinematografisch & impact</span>
+                  </div>
+                </div>
+                <ul class="space-y-1">
+                  <li>
+                    <a href="diensten/bedrijfsfilms.html" class="service-menu-item" data-service-key="bedrijfsfilms">
+                      <div class="font-medium text-zinc-200 text-xs">Bedrijfsfilms</div>
+                      <div class="text-[11px] text-zinc-500">Corporate storytelling op 4K</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="diensten/short-form-content.html" class="service-menu-item" data-service-key="shortform">
+                      <div class="font-medium text-zinc-200 text-xs">Short form content</div>
+                      <div class="text-[11px] text-zinc-500">Reels, TikTok & social hooks</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="diensten/wervingsvideos.html" class="service-menu-item" data-service-key="werving">
+                      <div class="font-medium text-zinc-200 text-xs">Wervingsvideo's</div>
+                      <div class="text-[11px] text-zinc-500">Trek top-talent aan</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="diensten/aftermovies.html" class="service-menu-item" data-service-key="aftermovies">
+                      <div class="font-medium text-zinc-200 text-xs">Aftermovies</div>
+                      <div class="text-[11px] text-zinc-500">Events en festivals vereeuwigd</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 2: Fotografie -->
+              <div class="mega-col bg-white/[0.02] p-4 rounded-xl border border-white/5 hover:border-sky-400/30 transition-all">
+                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
+                  <div class="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400">
+                    <i class="ph-bold ph-camera text-base"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Fotografie</h4>
+                    <span class="text-[11px] text-zinc-400">Haarscherpe merkbeleving</span>
+                  </div>
+                </div>
+                <ul class="space-y-1">
+                  <li>
+                    <a href="diensten/bedrijfsfotografie.html" class="service-menu-item" data-service-key="bedrijfsfotografie">
+                      <div class="font-medium text-zinc-200 text-xs">Bedrijfsfotografie</div>
+                      <div class="text-[11px] text-zinc-500">Werkplek, sfeer & cultuur</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="diensten/portretten.html" class="service-menu-item" data-service-key="portretten">
+                      <div class="font-medium text-zinc-200 text-xs">Portretten</div>
+                      <div class="text-[11px] text-zinc-500">Headshots & leiderschap</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="diensten/productfotografie.html" class="service-menu-item" data-service-key="productfotografie">
+                      <div class="font-medium text-zinc-200 text-xs">Productfotografie</div>
+                      <div class="text-[11px] text-zinc-500">Studio & lifestyle visuals</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 3: Design -->
+              <div class="mega-col bg-white/[0.02] p-4 rounded-xl border border-white/5 hover:border-amber-400/30 transition-all">
+                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
+                  <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
+                    <i class="ph-bold ph-pen-nib text-base"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Design</h4>
+                    <span class="text-[11px] text-zinc-400">Tastbaar & grafisch sterk</span>
+                  </div>
+                </div>
+                <ul class="space-y-1">
+                  <li>
+                    <a href="diensten/verpakkingsontwerp.html" class="service-menu-item" data-service-key="verpakking">
+                      <div class="font-medium text-zinc-200 text-xs">Verpakkingsontwerp</div>
+                      <div class="text-[11px] text-zinc-500">Opvallend in het schap</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="diensten/drukwerk.html" class="service-menu-item" data-service-key="drukwerk">
+                      <div class="font-medium text-zinc-200 text-xs">Drukwerk</div>
+                      <div class="text-[11px] text-zinc-500">Magazines, brochures & prints</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="diensten/flyers-posters-vacatures.html" class="service-menu-item" data-service-key="flyers">
+                      <div class="font-medium text-zinc-200 text-xs">Flyers, posters & vacatures</div>
+                      <div class="text-[11px] text-zinc-500">Campagnes met stopkracht</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <!-- Mega Dropdown Footer Banner -->
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-zinc-400">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span>
+                Op zoek naar een complete multimedia campagne?
+              </span>
+              <a href="#calculator" class="text-neon hover:underline font-semibold flex items-center gap-1">
+                Bereken indicatie <i class="ph ph-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="over-ons.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">
+          Over ons
+          <span class="nav-indicator"></span>
+        </a>
+
+        <a href="contact.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">
+          Contact
+          <span class="nav-indicator"></span>
+        </a>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neon text-black font-semibold text-xs tracking-wider uppercase hover:bg-neon-hover hover:shadow-glow transition-all duration-300 transform hover:-translate-y-0.5">
+          <span>Start een project</span>
+          <i class="ph-bold ph-arrow-up-right"></i>
+        </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-surface border border-white/10 text-white hover:text-neon transition-colors focus:outline-none" aria-label="Open navigatiemenu">
+          <i class="ph-bold ph-list text-2xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-menu" class="fixed inset-x-0 top-full h-[calc(100vh-80px)] bg-carbon/98 backdrop-blur-2xl border-b border-white/10 p-6 overflow-y-auto hidden flex-col justify-between">
+      <div class="space-y-6">
+        <div class="flex flex-col space-y-4 text-lg font-display">
+          <a href="cases.html" class="mobile-nav-link py-2 border-b border-white/5 text-zinc-200">Cases</a>
+          
+          <!-- Mobile Accordion for Diensten -->
+          <div class="border-b border-white/5 py-2">
+            <button id="mobile-diensten-toggle" class="flex items-center justify-between w-full text-zinc-200">
+              <span>Diensten</span>
+              <i class="ph ph-caret-down transition-transform"></i>
+            </button>
+            <div id="mobile-diensten-list" class="mt-3 pl-4 space-y-3 text-sm hidden">
+              <div class="text-neon font-mono uppercase text-xs">Video</div>
+              <a href="diensten/bedrijfsfilms.html" class="block text-zinc-400 hover:text-white">Bedrijfsfilms</a>
+              <a href="diensten/short-form-content.html" class="block text-zinc-400 hover:text-white">Short form content</a>
+              <a href="diensten/wervingsvideos.html" class="block text-zinc-400 hover:text-white">Wervingsvideo's</a>
+              <a href="diensten/aftermovies.html" class="block text-zinc-400 hover:text-white">Aftermovies</a>
+              
+              <div class="text-sky-400 font-mono uppercase text-xs pt-2">Fotografie</div>
+              <a href="diensten/bedrijfsfotografie.html" class="block text-zinc-400 hover:text-white">Bedrijfsfotografie</a>
+              <a href="diensten/portretten.html" class="block text-zinc-400 hover:text-white">Portretten</a>
+              <a href="diensten/productfotografie.html" class="block text-zinc-400 hover:text-white">Productfotografie</a>
+              
+              <div class="text-amber-400 font-mono uppercase text-xs pt-2">Design</div>
+              <a href="diensten/verpakkingsontwerp.html" class="block text-zinc-400 hover:text-white">Verpakkingsontwerp</a>
+              <a href="diensten/drukwerk.html" class="block text-zinc-400 hover:text-white">Drukwerk</a>
+              <a href="diensten/flyers-posters-vacatures.html" class="block text-zinc-400 hover:text-white">Flyers, posters en vacatures</a>
+            </div>
+          </div>
+
+          <a href="over-ons.html" class="mobile-nav-link py-2 border-b border-white/5 text-zinc-200">Over ons</a>
+          <a href="contact.html" class="mobile-nav-link py-2 border-b border-white/5 text-zinc-200">Contact</a>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/10">
+        <a href="contact.html" class="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-neon text-black font-bold uppercase tracking-wider text-xs">
+          <span>Direct Contact Opnemen</span>
+          <i class="ph-bold ph-paper-plane-tilt"></i>
+        </a>
+      </div>
+    </div>
+              <a href="#service-aftermovies" class="block text-zinc-400 hover:text-white">Aftermovies</a>
+              
+              <div class="text-sky-400 font-mono uppercase text-xs pt-2">Fotografie</div>
+              <a href="#service-bedrijfsfotografie" class="block text-zinc-400 hover:text-white">Bedrijfsfotografie</a>
+              <a href="#service-portretten" class="block text-zinc-400 hover:text-white">Portretten</a>
+              <a href="#service-productfotografie" class="block text-zinc-400 hover:text-white">Productfotografie</a>
+              
+              <div class="text-amber-400 font-mono uppercase text-xs pt-2">Design</div>
+              <a href="#service-verpakking" class="block text-zinc-400 hover:text-white">Verpakkingsontwerp</a>
+              <a href="#service-drukwerk" class="block text-zinc-400 hover:text-white">Drukwerk</a>
+              <a href="#service-flyers" class="block text-zinc-400 hover:text-white">Flyers, posters en vacatures</a>
+            </div>
+          </div>
+
+          <a href="#over-ons" class="mobile-nav-link py-2 border-b border-white/5 text-zinc-200">Over ons</a>
+          <a href="#contact" class="mobile-nav-link py-2 border-b border-white/5 text-zinc-200">Contact</a>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/10">
+        <a href="#contact" class="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-neon text-black font-bold uppercase tracking-wider text-xs">
+          <span>Direct Contact Opnemen</span>
+          <i class="ph-bold ph-paper-plane-tilt"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==================== HERO SECTION (CINEMATIC SHOWREEL) ==================== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 lg:px-12 overflow-hidden">
+    
+    <!-- Cinematic Video / Motion Backdrop -->
+    <div class="absolute inset-0 z-0">
+      <video id="hero-video" class="w-full h-full object-cover opacity-35 filter brightness-75 scale-105 transition-all duration-700" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=2000&q=80">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-cinematographer-filming-with-a-professional-camera-40897-large.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-carbon/90 via-transparent to-carbon/90"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
+      
+      <!-- Studio Pill Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface/80 border border-white/10 backdrop-blur-md mb-8 animate-fade-in shadow-glow-sm">
+        <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span>
+        <span class="text-xs font-mono uppercase tracking-widest text-zinc-300">Captain Media Studio & Production</span>
+        <span class="text-[10px] text-zinc-500 font-mono">|</span>
+        <span class="text-xs text-neon font-semibold">Tollebeek & Landelijk</span>
+      </div>
+
+      <!-- Main Headline: Cinematic Bold Typography -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight leading-[1.05] text-white uppercase max-w-4xl">
+        Beelden die <br class="hidden sm:block"/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon via-white to-zinc-300 inline-block">
+          blijven hangen.
+        </span>
+      </h1>
+
+      <!-- Subheadline in Dutch -->
+      <p class="mt-6 text-base sm:text-lg md:text-xl text-zinc-300 max-w-2xl font-normal leading-relaxed">
+        Wij maken cinematografische video’s, high-end bedrijfsfotografie en grafisch design dat jouw merk laat opvallen. Geen standaard beelden, maar pure visuele stopkracht.
+      </p>
+
+      <!-- CTA Buttons & Reel Trigger -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+        <a href="#cases" class="px-8 py-4 rounded-full bg-neon text-black font-display font-bold text-sm tracking-wider uppercase hover:bg-neon-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+          <span>Bekijk ons werk</span>
+          <i class="ph-bold ph-arrow-down-right text-base"></i>
+        </a>
+
+        <!-- Interactive Reel Video Modal Trigger -->
+        <button id="open-showreel-btn" class="group px-7 py-4 rounded-full bg-surface/90 border border-white/15 hover:border-neon/50 backdrop-blur-xl text-white font-medium text-sm transition-all duration-300 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-neon group-hover:text-black flex items-center justify-center transition-colors">
+            <i class="ph-fill ph-play text-xs ml-0.5"></i>
+          </div>
+          <span class="tracking-wide">Speel Showreel 2026 (01:45)</span>
+        </button>
+      </div>
+
+      <!-- Video Audio Toggle Control -->
+      <div class="mt-8 flex items-center gap-3 text-xs text-zinc-400 font-mono">
+        <button id="sound-toggle-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface/60 border border-white/5 hover:border-white/20 transition-colors">
+          <i id="sound-icon" class="ph-bold ph-speaker-simple-slash text-neon"></i>
+          <span id="sound-label">Geluid uit</span>
+        </button>
+        <span>•</span>
+        <span>4K UHD 60FPS</span>
+      </div>
+
+      <!-- Live Metric Badges -->
+      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 pt-8 border-t border-white/10 w-full max-w-4xl">
+        <div class="text-center">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-white">150+</div>
+          <div class="text-xs text-zinc-400 mt-1 uppercase font-mono tracking-wider">Producties Voltooid</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-neon">100%</div>
+          <div class="text-xs text-zinc-400 mt-1 uppercase font-mono tracking-wider">Cinematografisch</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-white">4.9/5</div>
+          <div class="text-xs text-zinc-400 mt-1 uppercase font-mono tracking-wider">Klantbeoordeling</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-white">3-in-1</div>
+          <div class="text-xs text-zinc-400 mt-1 uppercase font-mono tracking-wider">Video • Foto • Design</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== BRAND CLIENT LOGOS MARQUEE ==================== -->
+  <section class="py-8 bg-surface/50 border-y border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-4 flex items-center justify-between text-xs font-mono uppercase tracking-widest text-zinc-500">
+      <span>Vertrouwd door toonaangevende bedrijven & merken in Nederland</span>
+      <span class="text-neon flex items-center gap-1"><i class="ph-fill ph-check-circle"></i> Geverifieerde Producties</span>
+    </div>
+    <div class="relative w-full flex overflow-x-hidden">
+      <div class="marquee-track flex items-center gap-12 whitespace-nowrap text-zinc-400 font-display font-bold text-lg sm:text-xl tracking-wider">
+        <span class="hover:text-neon transition-colors">DE VRIES MARITIEM</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">NORTH SEA LOGISTICS</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">FLEVO AGRI BV</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">URK HARBOUR FESTIVAL</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">LUMEN ARCHITECTS</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">AMSTERDAM TASTE GROUP</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">PROFOUND PACKAGING</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">VELDHUIS BOUW</span>
+        <span class="text-zinc-600">•</span>
+      </div>
+      <div class="marquee-track flex items-center gap-12 whitespace-nowrap text-zinc-400 font-display font-bold text-lg sm:text-xl tracking-wider" aria-hidden="true">
+        <span class="hover:text-neon transition-colors">DE VRIES MARITIEM</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">NORTH SEA LOGISTICS</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">FLEVO AGRI BV</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">URK HARBOUR FESTIVAL</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">LUMEN ARCHITECTS</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">AMSTERDAM TASTE GROUP</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">PROFOUND PACKAGING</span>
+        <span class="text-zinc-600">•</span>
+        <span class="hover:text-neon transition-colors">VELDHUIS BOUW</span>
+        <span class="text-zinc-600">•</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CASES / PORTFOLIO SECTION (WEBFLOW CMS STYLE) ==================== -->
+  <section id="cases" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div>
+        <div class="flex items-center gap-2 text-neon text-xs font-mono uppercase tracking-widest mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-neon"></span>
+          <span>Ons Portfolio & Case Studies</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-white uppercase">
+          Verhalen die spreken. <br/>
+          <span class="text-zinc-400 font-normal">Gerealiseerde projecten.</span>
+        </h2>
+      </div>
+
+      <!-- CMS Interactive Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-full bg-surface border border-white/10" id="case-filters">
+        <button class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all" data-filter="all">
+          Alles (6)
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-zinc-400 hover:text-white transition-all" data-filter="video">
+          Video (3)
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-zinc-400 hover:text-white transition-all" data-filter="fotografie">
+          Fotografie (2)
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-zinc-400 hover:text-white transition-all" data-filter="design">
+          Design (1)
+        </button>
+      </div>
+    </div>
+
+    <!-- Case Studies Grid (Dynamic & Animated) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cases-grid">
+      
+      <!-- Case 1: Corporate Brand Film (Video) -->
+      <article class="case-card group cursor-pointer" data-category="video" data-case-id="case-1">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-neon/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80" alt="Vries Maritiem Corporate Film" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          
+          <!-- Category Tag -->
+          <div class="absolute top-4 left-4 flex gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono tracking-wider text-neon border border-neon/30 uppercase">
+              Bedrijfsfilm • 4K
+            </span>
+          </div>
+
+          <!-- Play Icon Hover Reveal -->
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="w-14 h-14 rounded-full bg-neon text-black flex items-center justify-center shadow-glow transform scale-75 group-hover:scale-100 transition-transform">
+              <i class="ph-fill ph-play text-xl ml-1"></i>
+            </div>
+          </div>
+
+          <!-- Bottom Meta Info -->
+          <div class="absolute bottom-4 inset-x-4">
+            <div class="text-xs font-mono text-zinc-400 mb-1">De Vries Maritiem • Urk</div>
+            <h3 class="text-lg font-display font-bold text-white group-hover:text-neon transition-colors">
+              Kracht op Open Water: Een Merkfilm Vol Emotie
+            </h3>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs text-zinc-400">
+          <span>Video Productie & Drone</span>
+          <span class="text-zinc-500 font-mono">Bekijk Case <i class="ph ph-arrow-right"></i></span>
+        </div>
+      </article>
+
+      <!-- Case 2: Recruitment Campaign (Video) -->
+      <article class="case-card group cursor-pointer" data-category="video" data-case-id="case-2">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-neon/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="North Sea Tech Recruitment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          
+          <div class="absolute top-4 left-4 flex gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono tracking-wider text-neon border border-neon/30 uppercase">
+              Wervingsvideo
+            </span>
+          </div>
+
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="w-14 h-14 rounded-full bg-neon text-black flex items-center justify-center shadow-glow transform scale-75 group-hover:scale-100 transition-transform">
+              <i class="ph-fill ph-play text-xl ml-1"></i>
+            </div>
+          </div>
+
+          <div class="absolute bottom-4 inset-x-4">
+            <div class="text-xs font-mono text-zinc-400 mb-1">North Sea Logistics • Kampen</div>
+            <h3 class="text-lg font-display font-bold text-white group-hover:text-neon transition-colors">
+              Werken bij de Toekomst: 14 Nieuwe Collega’s in 3 Weken
+            </h3>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs text-zinc-400">
+          <span>Wervingscampagne & Social Ads</span>
+          <span class="text-zinc-500 font-mono">Bekijk Case <i class="ph ph-arrow-right"></i></span>
+        </div>
+      </article>
+
+      <!-- Case 3: Bedrijfsfotografie (Fotografie) -->
+      <article class="case-card group cursor-pointer" data-category="fotografie" data-case-id="case-3">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-sky-400/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" alt="Lumen Architects Photography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          
+          <div class="absolute top-4 left-4 flex gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono tracking-wider text-sky-400 border border-sky-400/30 uppercase">
+              Bedrijfsfotografie
+            </span>
+          </div>
+
+          <div class="absolute bottom-4 inset-x-4">
+            <div class="text-xs font-mono text-zinc-400 mb-1">Lumen Architects • Zwolle</div>
+            <h3 class="text-lg font-display font-bold text-white group-hover:text-sky-400 transition-colors">
+              Architectonische Zuiverheid: Team & Werkomgeving
+            </h3>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs text-zinc-400">
+          <span>Locatiefotografie & Portretten</span>
+          <span class="text-zinc-500 font-mono">Bekijk Case <i class="ph ph-arrow-right"></i></span>
+        </div>
+      </article>
+
+      <!-- Case 4: Verpakkingsontwerp (Design) -->
+      <article class="case-card group cursor-pointer" data-category="design" data-case-id="case-4">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-amber-400/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1589365278144-c9e705f843ba?auto=format&fit=crop&w=1000&q=80" alt="Nordic Roast Packaging Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          
+          <div class="absolute top-4 left-4 flex gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono tracking-wider text-amber-400 border border-amber-400/30 uppercase">
+              Packaging Design
+            </span>
+          </div>
+
+          <div class="absolute bottom-4 inset-x-4">
+            <div class="text-xs font-mono text-zinc-400 mb-1">Nordic Roast Coffee • Amsterdam</div>
+            <h3 class="text-lg font-display font-bold text-white group-hover:text-amber-400 transition-colors">
+              Artisan Coffee Blends: Minimalistische Verpakkingslijn
+            </h3>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs text-zinc-400">
+          <span>Verpakkingsontwerp & Drukwerk</span>
+          <span class="text-zinc-500 font-mono">Bekijk Case <i class="ph ph-arrow-right"></i></span>
+        </div>
+      </article>
+
+      <!-- Case 5: Festival Aftermovie (Video) -->
+      <article class="case-card group cursor-pointer" data-category="video" data-case-id="case-5">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-neon/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80" alt="Urk Harbour Festival Aftermovie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          
+          <div class="absolute top-4 left-4 flex gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono tracking-wider text-neon border border-neon/30 uppercase">
+              Aftermovie
+            </span>
+          </div>
+
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="w-14 h-14 rounded-full bg-neon text-black flex items-center justify-center shadow-glow transform scale-75 group-hover:scale-100 transition-transform">
+              <i class="ph-fill ph-play text-xl ml-1"></i>
+            </div>
+          </div>
+
+          <div class="absolute bottom-4 inset-x-4">
+            <div class="text-xs font-mono text-zinc-400 mb-1">Havenfeesten • Flevoland</div>
+            <h3 class="text-lg font-display font-bold text-white group-hover:text-neon transition-colors">
+              25.000 Bezoekers, 1 Dag: De Officiële Festival Aftermovie
+            </h3>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs text-zinc-400">
+          <span>Live Registratie & Sound Design</span>
+          <span class="text-zinc-500 font-mono">Bekijk Case <i class="ph ph-arrow-right"></i></span>
+        </div>
+      </article>
+
+      <!-- Case 6: Productfotografie (Fotografie) -->
+      <article class="case-card group cursor-pointer" data-category="fotografie" data-case-id="case-6">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-sky-400/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80" alt="Chronos Watch Studio Photography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          
+          <div class="absolute top-4 left-4 flex gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono tracking-wider text-sky-400 border border-sky-400/30 uppercase">
+              Productfotografie
+            </span>
+          </div>
+
+          <div class="absolute bottom-4 inset-x-4">
+            <div class="text-xs font-mono text-zinc-400 mb-1">Chronos Timepieces • Utrecht</div>
+            <h3 class="text-lg font-display font-bold text-white group-hover:text-sky-400 transition-colors">
+              Macro Details & E-Commerce Studio Beelden
+            </h3>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs text-zinc-400">
+          <span>Macro Studio & Retouching</span>
+          <span class="text-zinc-500 font-mono">Bekijk Case <i class="ph ph-arrow-right"></i></span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Webflow CMS Demo Trigger Button -->
+    <div class="mt-16 p-8 rounded-2xl bg-surface/60 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 backdrop-blur-md">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-neon/10 border border-neon/30 flex items-center justify-center text-neon text-2xl">
+          <i class="ph-bold ph-database"></i>
+        </div>
+        <div>
+          <h4 class="text-base font-display font-bold text-white uppercase tracking-wider">Webflow CMS Architectuur</h4>
+          <p class="text-xs text-zinc-400 mt-0.5">Eenvoudig zelf nieuwe cases, video links en foto galerijen toevoegen zonder code.</p>
+        </div>
+      </div>
+      <button id="add-case-demo-btn" class="px-6 py-3 rounded-full bg-white/10 hover:bg-neon hover:text-black border border-white/20 transition-all duration-300 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+        <i class="ph-bold ph-plus-circle text-base"></i>
+        <span>Simuleer Nieuwe Case Toevoegen</span>
+      </button>
+    </div>
+
+  </section>
+
+
+  <!-- ==================== ALL 10 SERVICES SHOWCASE ==================== -->
+  <section id="diensten" class="py-24 bg-surface/30 border-t border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 text-neon text-xs font-mono uppercase tracking-widest mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-neon"></span>
+          <span>Wat Wij Bieden</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-white uppercase">
+          Drie Pijlers. <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon via-white to-zinc-400">
+            Eindeloze Impact.
+          </span>
+        </h2>
+        <p class="mt-4 text-zinc-400 text-sm sm:text-base leading-relaxed">
+          Iedere dienst heeft een eigen workflow, gespecialiseerde apparatuur en een dedicated team voor gegarandeerd resultaat.
+        </p>
+      </div>
+
+      <!-- 3 Pillars Tabs -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Pillar 1: VIDEO -->
+        <div class="service-pillar bg-surface/80 rounded-2xl p-8 border border-white/10 hover:border-neon/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="w-10 h-10 rounded-xl bg-neon/10 border border-neon/30 flex items-center justify-center text-neon">
+                <i class="ph-bold ph-film-strip text-xl"></i>
+              </span>
+              <span class="text-xs font-mono uppercase tracking-widest text-zinc-500">Pijler 01</span>
+            </div>
+            
+            <h3 class="text-2xl font-display font-bold text-white uppercase mb-2">Video Productie</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+              Verhalen verteld met bioscoopkwaliteit. Van draaiboek tot audio-mixage.
+            </p>
+
+            <!-- 4 Video Services from Upwork Job -->
+            <div class="space-y-4">
+              <a href="diensten/bedrijfsfilms.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-neon/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Bedrijfsfilms</span>
+                    <i class="ph ph-arrow-right text-neon text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-neon bg-neon/10 px-2 py-0.5 rounded">Corporate</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Breng identiteit, visie en vakmanschap van jouw organisatie overtuigend in beeld.</p>
+              </a>
+
+              <a href="diensten/short-form-content.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-neon/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Short form content</span>
+                    <i class="ph ph-arrow-right text-neon text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-neon bg-neon/10 px-2 py-0.5 rounded">TikTok / Reels</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Hoge retentie, sterke hooks en speciaal ontworpen voor mobiele vertical video feeds.</p>
+              </a>
+
+              <a href="diensten/wervingsvideos.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-neon/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Wervingsvideo's</span>
+                    <i class="ph ph-arrow-right text-neon text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-neon bg-neon/10 px-2 py-0.5 rounded">Recruitment</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Laat potentiële medewerkers de echte werksfeer proeven en vervul openstaande vacatures sneller.</p>
+              </a>
+
+              <a href="diensten/aftermovies.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-neon/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Aftermovies</span>
+                    <i class="ph ph-arrow-right text-neon text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-neon bg-neon/10 px-2 py-0.5 rounded">Events</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Herbeleef de energie van congressen, jubilea en festivals met dynamische montages.</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-white/10">
+            <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-semibold text-neon hover:underline">
+              <span>Vraag videoproject aan</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pillar 2: FOTOGRAFIE -->
+        <div class="service-pillar bg-surface/80 rounded-2xl p-8 border border-white/10 hover:border-sky-400/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-400/30 flex items-center justify-center text-sky-400">
+                <i class="ph-bold ph-camera-rotate text-xl"></i>
+              </span>
+              <span class="text-xs font-mono uppercase tracking-widest text-zinc-500">Pijler 02</span>
+            </div>
+            
+            <h3 class="text-2xl font-display font-bold text-white uppercase mb-2">Fotografie</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+              Authentieke, professionele fotografie die geloofwaardigheid en sfeer uitstraalt.
+            </p>
+
+            <!-- 3 Photography Services from Upwork Job -->
+            <div class="space-y-4">
+              <a href="diensten/bedrijfsfotografie.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-sky-400/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Bedrijfsfotografie</span>
+                    <i class="ph ph-arrow-right text-sky-400 text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded">On-site</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Prachtige beelden van jouw kantoor, fabrieksvloer, processen en tevreden klanten.</p>
+              </a>
+
+              <a href="diensten/portretten.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-sky-400/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Portretten</span>
+                    <i class="ph ph-arrow-right text-sky-400 text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded">Headshots</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Spontane, krachtige portretfoto's van directie en medewerkers voor websites en LinkedIn.</p>
+              </a>
+
+              <a href="diensten/productfotografie.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-sky-400/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Productfotografie</span>
+                    <i class="ph ph-arrow-right text-sky-400 text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded">Studio</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Haarscherpe studio-shots en lifestyle beelden die de conversie van jouw webshop verhogen.</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-white/10">
+            <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:underline">
+              <span>Boek een fotoshoot</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pillar 3: DESIGN -->
+        <div class="service-pillar bg-surface/80 rounded-2xl p-8 border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                <i class="ph-bold ph-paint-brush-broad text-xl"></i>
+              </span>
+              <span class="text-xs font-mono uppercase tracking-widest text-zinc-500">Pijler 03</span>
+            </div>
+            
+            <h3 class="text-2xl font-display font-bold text-white uppercase mb-2">Graphic Design</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+              Merkidentiteiten en tastbaar drukwerk die direct herkenbaar zijn.
+            </p>
+
+            <!-- 3 Design Services from Upwork Job -->
+            <div class="space-y-4">
+              <a href="diensten/verpakkingsontwerp.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Verpakkingsontwerp</span>
+                    <i class="ph ph-arrow-right text-amber-400 text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Packaging</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Doordachte verpakkingen, labels en unboxing experiences die consumenten overtuigen.</p>
+              </a>
+
+              <a href="diensten/drukwerk.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Drukwerk</span>
+                    <i class="ph ph-arrow-right text-amber-400 text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Print</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Van luxe brochures en jaarverslagen tot hoogwaardige catalogi met speciale afwerking.</p>
+              </a>
+
+              <a href="diensten/flyers-posters-vacatures.html" class="block service-subcard p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-amber-400/40 hover:bg-white/[0.04] transition-all">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+                    <span>Flyers, posters & vacatures</span>
+                    <i class="ph ph-arrow-right text-amber-400 text-xs"></i>
+                  </h4>
+                  <span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Campagnes</span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-1">Aandacht-trekkende promotie-uitingen voor fysieke en digitale wervingscampagnes.</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-white/10">
+            <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:underline">
+              <span>Start design aanvraag</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== ONZE WERKWIJZE (4-STEP PROCESS) ==================== -->
+  <section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div>
+        <div class="flex items-center gap-2 text-neon text-xs font-mono uppercase tracking-widest mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-neon"></span>
+          <span>Onze Werkwijze</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-white uppercase">
+          Van Concept <br/>
+          <span class="text-zinc-400 font-normal">Tot Oplevering.</span>
+        </h2>
+      </div>
+      <p class="text-xs sm:text-sm text-zinc-400 max-w-md">
+        Geen verrassingen achteraf. Een helder 4-stappen proces waarin wij jou van A tot Z ontzorgen.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Step 1 -->
+      <div class="process-card p-6 rounded-2xl bg-surface/50 border border-white/10 hover:border-neon/40 transition-all">
+        <div class="text-3xl font-mono font-bold text-neon mb-4">01</div>
+        <h3 class="text-lg font-display font-bold text-white mb-2 uppercase">Strategie & Concept</h3>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          We verdiepen ons in jouw doelgroep, kernboodschap en doelstellingen. Hieruit ontstaat het creatieve script of moodboard.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="process-card p-6 rounded-2xl bg-surface/50 border border-white/10 hover:border-neon/40 transition-all">
+        <div class="text-3xl font-mono font-bold text-white mb-4">02</div>
+        <h3 class="text-lg font-display font-bold text-white mb-2 uppercase">Draaiboek & Productie</h3>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Onze crew komt op locatie met cinema camera's, drones en professionele belichting. Alles verloopt soepel volgens planning.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="process-card p-6 rounded-2xl bg-surface/50 border border-white/10 hover:border-neon/40 transition-all">
+        <div class="text-3xl font-mono font-bold text-neon mb-4">03</div>
+        <h3 class="text-lg font-display font-bold text-white mb-2 uppercase">Montage & Grading</h3>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          In onze studio brengen we het beeld tot leven: dynamische montage, DaVinci Resolve color grading, sound design en voice-over.
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="process-card p-6 rounded-2xl bg-surface/50 border border-white/10 hover:border-neon/40 transition-all">
+        <div class="text-3xl font-mono font-bold text-white mb-4">04</div>
+        <h3 class="text-lg font-display font-bold text-white mb-2 uppercase">Launch & Distributie</h3>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Oplevering in alle gewenste formaten (16:9, 9:16 vertical, 1:1) inclusief advies voor maximale zichtbaarheid en advertenties.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== OVER ONS (ABOUT CAPTAIN MEDIA) ==================== -->
+  <section id="over-ons" class="py-24 bg-surface/40 border-y border-white/5 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Visual Composition with 3D Depth Card Effect -->
+      <div class="relative">
+        <div class="relative aspect-square sm:aspect-[4/3] rounded-3xl overflow-hidden border border-white/15 shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80" alt="Captain Media Filmmaking Studio" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-transparent to-transparent"></div>
+        </div>
+
+        <!-- Floating Badge -->
+        <div class="absolute -bottom-6 -right-4 sm:right-6 bg-surface/90 border border-white/15 backdrop-blur-xl p-5 rounded-2xl shadow-glow-sm max-w-xs">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-neon text-black flex items-center justify-center font-bold text-lg">
+              <i class="ph-bold ph-film-slate"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono uppercase text-zinc-400">Headquarters</div>
+              <div class="text-sm font-display font-bold text-white">Tollebeek / Urk, NL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Story Copy -->
+      <div>
+        <div class="inline-flex items-center gap-2 text-neon text-xs font-mono uppercase tracking-widest mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-neon"></span>
+          <span>Het Gezicht Achter Captain Media</span>
+        </div>
+        
+        <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-white uppercase leading-tight mb-6">
+          Vakmanschap Met Een <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon via-white to-zinc-300">
+            Nuchtere Blik.
+          </span>
+        </h2>
+
+        <p class="text-sm sm:text-base text-zinc-300 leading-relaxed mb-4">
+          Captain Media is opgericht vanuit één duidelijke passie: verhalen vangen op een manier die de kijker raakt en activeert. Gestart in Flevoland (Tollebeek en Urk) en inmiddels actief door heel Nederland voor ambitieuze bedrijven, maritieme organisaties en merken.
+        </p>
+
+        <p class="text-sm sm:text-base text-zinc-400 leading-relaxed mb-8">
+          Wij geloven niet in ingewikkeld doen om het ingewikkeld doen. Wij combineren top-level cinema gear (RED & Sony FX cinema lines, DGI drones, master optics) met een flexibele, no-nonsense mentaliteit. Eén aanspreekpunt voor jouw video, fotografie én design.
+        </p>
+
+        <!-- Highlights Checklist -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-zinc-300 mb-8 font-mono">
+          <div class="flex items-center gap-2">
+            <i class="ph-bold ph-check text-neon"></i>
+            <span>Volledig eigen high-end apparatuur</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="ph-bold ph-check text-neon"></i>
+            <span>Gecertificeerde drone-operators</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="ph-bold ph-check text-neon"></i>
+            <span>Snelle oplevertijden (binnen 7-14 dagen)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="ph-bold ph-check text-neon"></i>
+            <span>Eerlijke, transparante tarieven</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a href="#contact" class="px-6 py-3.5 rounded-full bg-white text-black font-semibold text-xs tracking-wider uppercase hover:bg-neon hover:shadow-glow transition-all">
+            Kennismaken & Koffie
+          </a>
+          <div class="flex flex-col">
+            <span class="text-xs text-zinc-500 font-mono">Jacob-Wouter</span>
+            <span class="text-xs font-semibold text-zinc-300">Oprichter & Cinematograaf</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== INTERACTIVE PROJECT ESTIMATOR (CALCULATOR) ==================== -->
+  <section id="calculator" class="py-24 px-6 lg:px-12 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 text-neon text-xs font-mono uppercase tracking-widest mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-neon"></span>
+        <span>Directe Indicatie</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-white uppercase">
+        Bereken Jouw Project Richtprijs
+      </h2>
+      <p class="text-xs sm:text-sm text-zinc-400 mt-2">
+        Kies jouw gewenste diensten en ontvang binnen 30 seconden een vrijblijvende budget-indicatie.
+      </p>
+    </div>
+
+    <!-- Estimator Container -->
+    <div class="bg-surface/80 rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl backdrop-blur-xl">
+      
+      <!-- Step 1: Select Services -->
+      <div class="mb-8">
+        <label class="block text-xs font-mono uppercase tracking-wider text-zinc-300 mb-4">
+          Stap 1: Welke disciplines heb je nodig? (Selecteer 1 of meerdere)
+        </label>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <label class="calc-checkbox flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-neon cursor-pointer transition-all">
+            <input type="checkbox" name="calc-service" value="video" class="accent-neon w-4 h-4" checked>
+            <div>
+              <div class="text-xs font-bold text-white">Video Productie</div>
+              <div class="text-[10px] text-zinc-500">Vanaf € 1.250</div>
+            </div>
+          </label>
+          <label class="calc-checkbox flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-sky-400 cursor-pointer transition-all">
+            <input type="checkbox" name="calc-service" value="fotografie" class="accent-sky-400 w-4 h-4">
+            <div>
+              <div class="text-xs font-bold text-white">Fotografie</div>
+              <div class="text-[10px] text-zinc-500">Vanaf € 650</div>
+            </div>
+          </label>
+          <label class="calc-checkbox flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400 cursor-pointer transition-all">
+            <input type="checkbox" name="calc-service" value="design" class="accent-amber-400 w-4 h-4">
+            <div>
+              <div class="text-xs font-bold text-white">Graphic Design</div>
+              <div class="text-[10px] text-zinc-500">Vanaf € 450</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 2: Complexity / Scope -->
+      <div class="mb-8">
+        <label class="block text-xs font-mono uppercase tracking-wider text-zinc-300 mb-4">
+          Stap 2: Verwachte omvang / draaidagen
+        </label>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <label class="calc-radio flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-white/30 cursor-pointer transition-all">
+            <input type="radio" name="calc-scope" value="1" class="accent-neon" checked>
+            <div>
+              <div class="text-xs font-bold text-white">Compact (1 Halve Dag)</div>
+              <div class="text-[10px] text-zinc-500">Ideaal voor short-form & portretten</div>
+            </div>
+          </label>
+          <label class="calc-radio flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-white/30 cursor-pointer transition-all">
+            <input type="radio" name="calc-scope" value="2" class="accent-neon">
+            <div>
+              <div class="text-xs font-bold text-white">Standaard (1 Volledige Dag)</div>
+              <div class="text-[10px] text-zinc-500">Bedrijfsfilm + drone + fotografie</div>
+            </div>
+          </label>
+          <label class="calc-radio flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-white/30 cursor-pointer transition-all">
+            <input type="radio" name="calc-scope" value="3" class="accent-neon">
+            <div>
+              <div class="text-xs font-bold text-white">Campagne (Meerdere Dagen)</div>
+              <div class="text-[10px] text-zinc-500">Volledige branding & multimedia</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Live Calculation Display Result -->
+      <div class="p-6 rounded-2xl bg-black/60 border border-neon/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-zinc-400">Geschatte Investering:</span>
+          <div class="text-2xl sm:text-3xl font-display font-extrabold text-neon mt-0.5" id="calc-result-price">
+            € 1.250 - € 2.100 <span class="text-xs text-zinc-400 font-normal">excl. BTW</span>
+          </div>
+          <div class="text-[11px] text-zinc-400 mt-1">Inclusief draaidag, 4K camera gear, grading en 2 revisierondes.</div>
+        </div>
+        <a href="#contact" class="px-6 py-3 rounded-full bg-neon text-black font-bold text-xs uppercase tracking-wider hover:bg-neon-hover transition-colors whitespace-nowrap">
+          Vraag Offerte Op Maat
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section id="contact" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      
+      <!-- Contact Info & Direct Channels -->
+      <div>
+        <div class="inline-flex items-center gap-2 text-neon text-xs font-mono uppercase tracking-widest mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-neon"></span>
+          <span>Klaar Voor Impact?</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-white uppercase leading-tight mb-6">
+          Laten We Samen <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon via-white to-zinc-400">
+            Iets Groots Maken.
+          </span>
+        </h2>
+        <p class="text-sm text-zinc-300 leading-relaxed mb-8">
+          Heb je een vraag over een bedrijfsfilm, wervingscampagne, fotoshoot of verpakkingsdesign? Vul het formulier in of neem rechtstreeks contact op. We reageren altijd binnen 24 uur.
+        </p>
+
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-neon">
+              <i class="ph-bold ph-envelope-simple text-lg"></i>
+            </div>
+            <div>
+              <div class="text-[11px] font-mono uppercase text-zinc-500">E-mail ons</div>
+              <a href="mailto:info@captain-media.nl" class="text-sm font-semibold text-white hover:text-neon transition-colors">
+                info@captain-media.nl
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-neon">
+              <i class="ph-bold ph-map-pin text-lg"></i>
+            </div>
+            <div>
+              <div class="text-[11px] font-mono uppercase text-zinc-500">Locatie Studio</div>
+              <div class="text-sm font-semibold text-white">Tollebeek & Urk, Flevoland (Werkzaam in heel NL)</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-neon">
+              <i class="ph-bold ph-chat-teardrop-dots text-lg"></i>
+            </div>
+            <div>
+              <div class="text-[11px] font-mono uppercase text-zinc-500">WhatsApp Kennismaking</div>
+              <a href="https://wa.me/31600000000" target="_blank" rel="noopener" class="text-sm font-semibold text-white hover:text-neon transition-colors">
+                Start WhatsApp Gesprek
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Contact Form -->
+      <div class="bg-surface/90 rounded-3xl p-8 border border-white/10 shadow-2xl backdrop-blur-xl">
+        <form id="contact-form" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Naam *</label>
+              <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm placeholder-zinc-600 transition-colors" placeholder="Bijv. Jan de Vries">
+            </div>
+            <div>
+              <label for="company" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Bedrijfsnaam</label>
+              <input type="text" id="company" class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm placeholder-zinc-600 transition-colors" placeholder="Bijv. De Vries B.V.">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="email" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">E-mailadres *</label>
+              <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm placeholder-zinc-600 transition-colors" placeholder="jan@bedrijf.nl">
+            </div>
+            <div>
+              <label for="phone" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Telefoonnummer</label>
+              <input type="tel" id="phone" class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm placeholder-zinc-600 transition-colors" placeholder="06 12345678">
+            </div>
+          </div>
+
+          <div>
+            <label for="service-select" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Interesse in discipline *</label>
+            <select id="service-select" required class="w-full px-4 py-3 rounded-xl bg-carbon border border-white/10 focus:border-neon focus:outline-none text-white text-sm transition-colors">
+              <option value="video-bedrijfsfilm">Video: Bedrijfsfilm</option>
+              <option value="video-shortform">Video: Short form content / Socials</option>
+              <option value="video-werving">Video: Wervingsvideo</option>
+              <option value="video-aftermovie">Video: Aftermovie</option>
+              <option value="foto-bedrijf">Fotografie: Bedrijfsfotografie</option>
+              <option value="foto-portret">Fotografie: Portretten</option>
+              <option value="foto-product">Fotografie: Productfotografie</option>
+              <option value="design-verpakking">Design: Verpakkingsontwerp</option>
+              <option value="design-drukwerk">Design: Drukwerk</option>
+              <option value="design-flyers">Design: Flyers, posters en vacatures</option>
+              <option value="all-in-one">Complete Multimedia Campagne</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Vertel kort over jouw plannen *</label>
+            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm placeholder-zinc-600 transition-colors resize-none" placeholder="Wat is het doel van de productie, gewenste deadline en eventuele budgettaire richtlijnen?"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-xl bg-neon text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-neon-hover hover:shadow-glow transition-all flex items-center justify-center gap-2">
+            <span>Verstuur Projectaanvraag</span>
+            <i class="ph-bold ph-paper-plane-right text-sm"></i>
+          </button>
+
+          <p class="text-[11px] text-zinc-500 text-center">
+            Wij respecteren jouw privacy. Geen spam, gegarandeerd snelle reactie.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-carbon border-t border-white/10 pt-16 pb-12 px-6 lg:px-12 text-zinc-400 text-xs">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      
+      <!-- Brand column -->
+      <div class="space-y-4">
+        <a href="#hero" class="text-xl font-display font-bold text-white flex items-center gap-2">
+          <span>CAPTAIN MEDIA</span>
+        </a>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          High-end videoproductie, professionele fotografie en grafisch design met cinematografische perfectie.
+        </p>
+        <div class="text-[11px] text-zinc-500 font-mono">
+          KvK: 84930219 • Tollebeek / Flevoland
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h5 class="text-white font-mono uppercase text-xs tracking-wider mb-4">Navigatie</h5>
+        <ul class="space-y-2">
+          <li><a href="cases.html" class="hover:text-neon transition-colors">Cases (Ons Werk)</a></li>
+          <li><a href="index.html#diensten" class="hover:text-neon transition-colors">Diensten Overzicht</a></li>
+          <li><a href="over-ons.html" class="hover:text-neon transition-colors">Over Captain Media</a></li>
+          <li><a href="#calculator" class="hover:text-neon transition-colors">Project Calculator</a></li>
+          <li><a href="contact.html" class="hover:text-neon transition-colors">Contact Opnemen</a></li>
+        </ul>
+      </div>
+
+      <!-- Services List -->
+      <div>
+        <h5 class="text-white font-mono uppercase text-xs tracking-wider mb-4">Specialisaties</h5>
+        <ul class="space-y-2">
+          <li><a href="diensten/bedrijfsfilms.html" class="hover:text-neon transition-colors">Bedrijfsfilms & Brand Movies</a></li>
+          <li><a href="diensten/short-form-content.html" class="hover:text-neon transition-colors">Short Form & Social Hooks</a></li>
+          <li><a href="diensten/wervingsvideos.html" class="hover:text-neon transition-colors">Wervingsvideo's</a></li>
+          <li><a href="diensten/bedrijfsfotografie.html" class="hover:text-neon transition-colors">Bedrijfsfotografie & Portretten</a></li>
+          <li><a href="diensten/verpakkingsontwerp.html" class="hover:text-neon transition-colors">Verpakkingsontwerp & Drukwerk</a></li>
+        </ul>
+      </div>
+
+      <!-- Social & Newsletter -->
+      <div>
+        <h5 class="text-white font-mono uppercase text-xs tracking-wider mb-4">Volg Ons Werk</h5>
+        <div class="flex items-center gap-3 mb-4">
+          <a href="#" class="w-8 h-8 rounded-lg bg-surface border border-white/10 flex items-center justify-center text-white hover:text-neon hover:border-neon transition-all" aria-label="Instagram">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-surface border border-white/10 flex items-center justify-center text-white hover:text-neon hover:border-neon transition-all" aria-label="YouTube">
+            <i class="ph-bold ph-youtube-logo"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-surface border border-white/10 flex items-center justify-center text-white hover:text-neon hover:border-neon transition-all" aria-label="LinkedIn">
+            <i class="ph-bold ph-linkedin-logo"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-surface border border-white/10 flex items-center justify-center text-white hover:text-neon hover:border-neon transition-all" aria-label="Vimeo">
+            <i class="ph-bold ph-video"></i>
+          </a>
+        </div>
+        <p class="text-[11px] text-zinc-500">
+          Actueel werk en behind-the-scenes beelden op onze socials.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-500 text-[11px]">
+      <div>
+        © 2026 Captain Media. Alle rechten voorbehouden.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-zinc-300 transition-colors">Privacybeleid</a>
+        <a href="#" class="hover:text-zinc-300 transition-colors">Algemene Voorwaarden</a>
+        <a href="#" class="hover:text-zinc-300 transition-colors">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================== CASE STUDY DETAIL MODAL (CMS DRAWER) ==================== -->
+  <div id="case-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 opacity-0 invisible transition-all duration-300">
+    <div class="bg-surface border border-white/15 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 relative shadow-2xl text-left">
+      
+      <!-- Close Button -->
+      <button id="close-modal-btn" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-neon hover:text-black flex items-center justify-center text-white transition-colors" aria-label="Sluit case">
+        <i class="ph-bold ph-x text-lg"></i>
+      </button>
+
+      <!-- Modal Content Injected via JS -->
+      <div id="modal-body"></div>
+
+    </div>
+  </div>
+
+
+  <!-- ==================== SHOWREEL VIDEO MODAL ==================== -->
+  <div id="showreel-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8 opacity-0 invisible transition-all duration-300">
+    <div class="relative max-w-5xl w-full aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black">
+      <button id="close-showreel-btn" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/80 hover:bg-neon hover:text-black flex items-center justify-center text-white transition-colors">
+        <i class="ph-bold ph-x text-lg"></i>
+      </button>
+      <iframe id="showreel-iframe" class="w-full h-full" src="" title="Captain Media Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>

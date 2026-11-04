@@ -1,0 +1,322 @@
+/* ==========================================================================
+   CAPTAIN MEDIA — CINEMATIC AGENCY DESIGN SYSTEM
+   Inspired by Beeldfanaat.nl & Built with UI/UX Pro Max & Motion Best Practices
+   ========================================================================== */
+
+/* --- Custom Variables & Palette --- */
+:root {
+  --color-carbon: #090B0E;
+  --color-carbon-light: #10131A;
+  --color-surface: #141722;
+  --color-surface-hover: #1B2030;
+  --color-neon: #D4FF00;
+  --color-neon-hover: #E3FF4D;
+  --color-neon-glow: rgba(212, 255, 0, 0.35);
+  
+  --color-sky: #38BDF8;
+  --color-sky-glow: rgba(56, 189, 248, 0.3);
+  --color-amber: #F59E0B;
+  --color-amber-glow: rgba(245, 158, 11, 0.3);
+
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* --- Base Resets & Global Styles --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-carbon);
+  color: #FFFFFF;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Display Font Class */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Background & Surface Classes */
+.bg-carbon {
+  background-color: var(--color-carbon);
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.bg-neon {
+  background-color: var(--color-neon);
+}
+
+.bg-neon-hover:hover {
+  background-color: var(--color-neon-hover);
+}
+
+.text-neon {
+  color: var(--color-neon);
+}
+
+.border-neon {
+  border-color: var(--color-neon);
+}
+
+.selection\:bg-neon::selection {
+  background-color: var(--color-neon);
+  color: #000000;
+}
+
+/* Glow Shadows */
+.shadow-glow {
+  box-shadow: 0 0 35px var(--color-neon-glow);
+}
+
+.shadow-glow-sm {
+  box-shadow: 0 0 18px rgba(212, 255, 0, 0.18);
+}
+
+/* --- Ambient Cinematic Film Grain --- */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* --- Custom Magnetic Cursor --- */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-neon);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(212, 255, 0, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s cubic-bezier(0.1, 0.9, 0.2, 1), width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+/* Cursor Hover States */
+body.hover-link .custom-cursor {
+  width: 14px;
+  height: 14px;
+  background-color: #FFFFFF;
+}
+
+body.hover-link .custom-cursor-follower {
+  width: 54px;
+  height: 54px;
+  border-color: var(--color-neon);
+  background-color: rgba(212, 255, 0, 0.08);
+}
+
+/* --- Header & Navigation Polish --- */
+.nav-link {
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-neon);
+  transition: width 0.3s var(--ease-spring);
+}
+
+.nav-link:hover .nav-indicator {
+  width: 100%;
+}
+
+/* Mega Menu Item */
+.service-menu-item {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.service-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateX(4px);
+}
+
+.service-menu-item:hover .text-zinc-200 {
+  color: var(--color-neon);
+}
+
+/* --- Marquee Infinite Scroll --- */
+.marquee-track {
+  animation: marquee-scroll 28s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.relative:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* --- Case Studies Cards & Micro-interactions --- */
+.case-card {
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.case-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Filter Buttons */
+.filter-btn.active {
+  background-color: var(--color-neon);
+  color: #000000;
+  box-shadow: 0 0 15px rgba(212, 255, 0, 0.3);
+}
+
+/* --- Service Pillars & Subcards --- */
+.service-pillar {
+  transition: transform 0.35s var(--ease-spring), border-color 0.35s ease;
+}
+
+.service-pillar:hover {
+  transform: translateY(-4px);
+}
+
+.service-subcard {
+  transition: all 0.25s ease;
+}
+
+.service-subcard:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateX(3px);
+}
+
+/* --- Process Step Cards --- */
+.process-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-spring), border-color 0.3s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-4px);
+}
+
+.process-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-neon), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.process-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Calculator & Estimator Styles --- */
+.calc-checkbox input:checked + div,
+.calc-radio input:checked + div {
+  color: #FFFFFF;
+}
+
+.calc-checkbox:has(input:checked),
+.calc-radio:has(input:checked) {
+  border-color: var(--color-neon);
+  background-color: rgba(212, 255, 0, 0.05);
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-carbon);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252A38;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s var(--ease-spring) forwards;
+}
+
+/* --- Responsive Adaptations --- */
+@media (max-width: 1024px) {
+  .mega-dropdown {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.25rem !important;
+  }
+  .case-card {
+    margin-bottom: 0.5rem;
+  }
+}
+

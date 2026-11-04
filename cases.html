@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cases & Portfolio | Captain Media</title>
+  <meta name="description" content="Bekijk het portfolio van Captain Media: cinematografische bedrijfsfilms, wervingsvideo's, professionele fotografie en grafisch design voor toonaangevende merken.">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B0D12'/><circle cx='50' cy='50' r='35' stroke='%23D4FF00' stroke-width='8' fill='none'/><polygon points='42,32 68,50 42,68' fill='%23D4FF00'/></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            carbon: '#090B0E',
+            surface: '#141722',
+            neon: {
+              DEFAULT: '#D4FF00',
+              hover: '#E3FF4D',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Syne"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-carbon text-white font-sans antialiased overflow-x-hidden selection:bg-neon selection:text-black">
+
+  <div class="fixed inset-0 pointer-events-none z-50 opacity-25 grain-overlay"></div>
+  <div class="fixed -top-40 -left-40 w-96 h-96 bg-neon/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor" class="custom-cursor hidden md:block"></div>
+  <div id="custom-cursor-follower" class="custom-cursor-follower hidden md:block"></div>
+
+  <!-- HEADER -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-40 py-5 px-6 lg:px-12 backdrop-blur-md bg-carbon/80 border-b border-white/5 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 text-xl font-display font-extrabold tracking-tight text-white">
+        <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
+          <svg class="w-5 h-5 text-neon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="leading-none text-white tracking-wider flex items-center gap-1.5">CAPTAIN <span class="text-neon text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-neon/10 border border-neon/30">STUDIO</span></span>
+          <span class="text-[10px] font-mono tracking-widest text-zinc-400 uppercase mt-0.5">Media & Content</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+        <a href="cases.html" class="text-neon font-semibold py-2 relative">
+          Cases
+          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-neon"></span>
+        </a>
+
+        <!-- Diensten Dropdown -->
+        <div class="relative group">
+          <a href="index.html#diensten" class="nav-link flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors py-2">
+            Diensten
+            <i class="ph ph-caret-down text-xs transition-transform duration-300 group-hover:rotate-180 text-neon"></i>
+            <span class="nav-indicator"></span>
+          </a>
+
+          <div class="mega-dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[840px] p-6 rounded-2xl bg-surface/95 backdrop-blur-2xl border border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+            <div class="grid grid-cols-3 gap-6">
+              
+              <!-- Video -->
+              <div class="bg-white/[0.02] p-4 rounded-xl border border-white/5">
+                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
+                  <div class="w-8 h-8 rounded-lg bg-neon/10 flex items-center justify-center text-neon"><i class="ph-bold ph-video-camera"></i></div>
+                  <div><h4 class="font-display font-bold text-white text-sm uppercase">Video</h4><span class="text-[11px] text-zinc-400">Cinematografisch</span></div>
+                </div>
+                <ul class="space-y-1">
+                  <li><a href="diensten/bedrijfsfilms.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Bedrijfsfilms</div><div class="text-[11px] text-zinc-500">Corporate storytelling op 4K</div></a></li>
+                  <li><a href="diensten/short-form-content.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Short form content</div><div class="text-[11px] text-zinc-500">Reels, TikTok & social hooks</div></a></li>
+                  <li><a href="diensten/wervingsvideos.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Wervingsvideo's</div><div class="text-[11px] text-zinc-500">Trek top-talent aan</div></a></li>
+                  <li><a href="diensten/aftermovies.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Aftermovies</div><div class="text-[11px] text-zinc-500">Events en festivals</div></a></li>
+                </ul>
+              </div>
+
+              <!-- Fotografie -->
+              <div class="bg-white/[0.02] p-4 rounded-xl border border-white/5">
+                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
+                  <div class="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400"><i class="ph-bold ph-camera"></i></div>
+                  <div><h4 class="font-display font-bold text-white text-sm uppercase">Fotografie</h4><span class="text-[11px] text-zinc-400">Haarscherpe visuals</span></div>
+                </div>
+                <ul class="space-y-1">
+                  <li><a href="diensten/bedrijfsfotografie.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Bedrijfsfotografie</div><div class="text-[11px] text-zinc-500">Werkplek & sfeer</div></a></li>
+                  <li><a href="diensten/portretten.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Portretten</div><div class="text-[11px] text-zinc-500">Headshots & leiderschap</div></a></li>
+                  <li><a href="diensten/productfotografie.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Productfotografie</div><div class="text-[11px] text-zinc-500">Studio & lifestyle</div></a></li>
+                </ul>
+              </div>
+
+              <!-- Design -->
+              <div class="bg-white/[0.02] p-4 rounded-xl border border-white/5">
+                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
+                  <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400"><i class="ph-bold ph-pen-nib"></i></div>
+                  <div><h4 class="font-display font-bold text-white text-sm uppercase">Design</h4><span class="text-[11px] text-zinc-400">Tastbaar & grafisch</span></div>
+                </div>
+                <ul class="space-y-1">
+                  <li><a href="diensten/verpakkingsontwerp.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Verpakkingsontwerp</div><div class="text-[11px] text-zinc-500">Opvallend in het schap</div></a></li>
+                  <li><a href="diensten/drukwerk.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Drukwerk</div><div class="text-[11px] text-zinc-500">Brochures & magazines</div></a></li>
+                  <li><a href="diensten/flyers-posters-vacatures.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Flyers & posters</div><div class="text-[11px] text-zinc-500">Campagnes met stopkracht</div></a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <a href="over-ons.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">
+          Over ons
+          <span class="nav-indicator"></span>
+        </a>
+
+        <a href="contact.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">
+          Contact
+          <span class="nav-indicator"></span>
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neon text-black font-semibold text-xs tracking-wider uppercase hover:bg-neon-hover transition-all">
+          <span>Start een project</span>
+          <i class="ph-bold ph-arrow-up-right"></i>
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-surface border border-white/10 text-white" aria-label="Menu">
+          <i class="ph-bold ph-list text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CASES HERO & INTRO -->
+  <main class="pt-36 pb-24 px-6 lg:px-12 max-w-7xl mx-auto">
+    <div class="mb-14">
+      <div class="inline-flex items-center gap-2 text-neon text-xs font-mono uppercase tracking-widest mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-neon"></span>
+        <span>Portfolio & Referenties</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-display font-extrabold tracking-tight text-white uppercase leading-none">
+        Gerealiseerde <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon via-white to-zinc-400">Cases & Producties.</span>
+      </h1>
+      <p class="mt-4 text-zinc-400 text-base max-w-2xl leading-relaxed">
+        Ontdek onze meest recente producties voor toonaangevende bedrijven, maritieme organisaties en merken. Gefilterd op discipline via onze Webflow CMS collectie.
+      </p>
+
+      <!-- Filter Controls -->
+      <div class="mt-8 flex flex-wrap items-center gap-3 p-1.5 rounded-full bg-surface border border-white/10 max-w-fit">
+        <button class="filter-btn active px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all" data-filter="all">Alles (6)</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-white transition-all" data-filter="video">Video (3)</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-white transition-all" data-filter="fotografie">Fotografie (2)</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-white transition-all" data-filter="design">Design (1)</button>
+      </div>
+    </div>
+
+    <!-- Case Studies Full Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cases-grid">
+      
+      <!-- Case 1 -->
+      <article class="case-card group cursor-pointer" data-category="video" data-case-id="case-1">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-neon/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80" alt="De Vries Maritiem" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="px-3 py-1 rounded-full bg-black/60 text-[10px] font-mono tracking-wider text-neon border border-neon/30 uppercase">Bedrijfsfilm • 4K</span></div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><div class="w-14 h-14 rounded-full bg-neon text-black flex items-center justify-center shadow-glow"><i class="ph-fill ph-play text-xl ml-1"></i></div></div>
+          <div class="absolute bottom-4 inset-x-4"><div class="text-xs font-mono text-zinc-400 mb-1">De Vries Maritiem • Urk</div><h3 class="text-lg font-display font-bold text-white group-hover:text-neon transition-colors">Kracht op Open Water: Een Merkfilm Vol Emotie</h3></div>
+        </div>
+      </article>
+
+      <!-- Case 2 -->
+      <article class="case-card group cursor-pointer" data-category="video" data-case-id="case-2">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-neon/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="North Sea Tech Recruitment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="px-3 py-1 rounded-full bg-black/60 text-[10px] font-mono tracking-wider text-neon border border-neon/30 uppercase">Wervingsvideo</span></div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><div class="w-14 h-14 rounded-full bg-neon text-black flex items-center justify-center shadow-glow"><i class="ph-fill ph-play text-xl ml-1"></i></div></div>
+          <div class="absolute bottom-4 inset-x-4"><div class="text-xs font-mono text-zinc-400 mb-1">North Sea Logistics • Kampen</div><h3 class="text-lg font-display font-bold text-white group-hover:text-neon transition-colors">Werken bij de Toekomst: 14 Nieuwe Collega’s in 3 Weken</h3></div>
+        </div>
+      </article>
+
+      <!-- Case 3 -->
+      <article class="case-card group cursor-pointer" data-category="fotografie" data-case-id="case-3">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-sky-400/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" alt="Lumen Architects" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="px-3 py-1 rounded-full bg-black/60 text-[10px] font-mono tracking-wider text-sky-400 border border-sky-400/30 uppercase">Bedrijfsfotografie</span></div>
+          <div class="absolute bottom-4 inset-x-4"><div class="text-xs font-mono text-zinc-400 mb-1">Lumen Architects • Zwolle</div><h3 class="text-lg font-display font-bold text-white group-hover:text-sky-400 transition-colors">Architectonische Zuiverheid: Team & Werkomgeving</h3></div>
+        </div>
+      </article>
+
+      <!-- Case 4 -->
+      <article class="case-card group cursor-pointer" data-category="design" data-case-id="case-4">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-amber-400/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1589365278144-c9e705f843ba?auto=format&fit=crop&w=1000&q=80" alt="Nordic Roast Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="px-3 py-1 rounded-full bg-black/60 text-[10px] font-mono tracking-wider text-amber-400 border border-amber-400/30 uppercase">Packaging Design</span></div>
+          <div class="absolute bottom-4 inset-x-4"><div class="text-xs font-mono text-zinc-400 mb-1">Nordic Roast Coffee • Amsterdam</div><h3 class="text-lg font-display font-bold text-white group-hover:text-amber-400 transition-colors">Artisan Coffee Blends: Minimalistische Verpakkingslijn</h3></div>
+        </div>
+      </article>
+
+      <!-- Case 5 -->
+      <article class="case-card group cursor-pointer" data-category="video" data-case-id="case-5">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-neon/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80" alt="Urk Havenfeesten" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="px-3 py-1 rounded-full bg-black/60 text-[10px] font-mono tracking-wider text-neon border border-neon/30 uppercase">Aftermovie</span></div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><div class="w-14 h-14 rounded-full bg-neon text-black flex items-center justify-center shadow-glow"><i class="ph-fill ph-play text-xl ml-1"></i></div></div>
+          <div class="absolute bottom-4 inset-x-4"><div class="text-xs font-mono text-zinc-400 mb-1">Havenfeesten • Flevoland</div><h3 class="text-lg font-display font-bold text-white group-hover:text-neon transition-colors">25.000 Bezoekers, 1 Dag: De Officiële Festival Aftermovie</h3></div>
+        </div>
+      </article>
+
+      <!-- Case 6 -->
+      <article class="case-card group cursor-pointer" data-category="fotografie" data-case-id="case-6">
+        <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-surface border border-white/10 group-hover:border-sky-400/50 transition-all duration-500 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80" alt="Chronos Watches" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/30 to-transparent"></div>
+          <div class="absolute top-4 left-4"><span class="px-3 py-1 rounded-full bg-black/60 text-[10px] font-mono tracking-wider text-sky-400 border border-sky-400/30 uppercase">Productfotografie</span></div>
+          <div class="absolute bottom-4 inset-x-4"><div class="text-xs font-mono text-zinc-400 mb-1">Chronos Timepieces • Utrecht</div><h3 class="text-lg font-display font-bold text-white group-hover:text-sky-400 transition-colors">Macro Details & E-Commerce Studio Beelden</h3></div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Webflow CMS Integration Box -->
+    <div class="mt-20 p-8 rounded-3xl bg-surface/80 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-xl font-display font-bold text-white uppercase">Klaar om jouw project hieraan toe te voegen?</h3>
+        <p class="text-xs text-zinc-400 mt-1">We ontwikkelen een custom film-, foto- of designplan afgestemd op jouw bedrijfsdoelstellingen.</p>
+      </div>
+      <a href="contact.html" class="px-8 py-4 rounded-full bg-neon text-black font-bold uppercase text-xs tracking-wider hover:bg-neon-hover transition-all">
+        Start Jouw Case
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-carbon border-t border-white/10 py-12 px-6 lg:px-12 text-zinc-500 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>© 2026 Captain Media • Tollebeek & Urk, Flevoland</div>
+      <div class="flex gap-6"><a href="index.html" class="hover:text-white">Home</a><a href="cases.html" class="text-neon">Cases</a><a href="over-ons.html" class="hover:text-white">Over ons</a><a href="contact.html" class="hover:text-white">Contact</a></div>
+    </div>
+  </footer>
+
+  <!-- Case Modal Component -->
+  <div id="case-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 opacity-0 invisible transition-all duration-300">
+    <div class="bg-surface border border-white/15 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 relative shadow-2xl text-left">
+      <button id="close-modal-btn" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-neon hover:text-black flex items-center justify-center text-white transition-colors"><i class="ph-bold ph-x text-lg"></i></button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
