@@ -1,104 +1,245 @@
-<!DOCTYPE html>
-<html lang="nl" class="scroll-smooth">
+<!doctype html>
+<html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drukwerk & Print Design | Captain Media</title>
-  <meta name="description" content="Hoogwaardig drukwerk ontwerp door Captain Media. Magazines, brochures, jaarverslagen en catalogi met luxe afwerking.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B0D12'/><circle cx='50' cy='50' r='35' stroke='%23F59E0B' stroke-width='8' fill='none'/><polygon points='42,32 68,50 42,68' fill='%23F59E0B'/></svg>">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drukwerk | Captain Media</title>
+  <meta name="description" content="Brochures, magazines en huisstijldrukwerk met oog voor detail. Drukwerk door Captain Media.">
+  <meta property="og:title" content="Drukwerk | Captain Media">
+  <meta property="og:description" content="Brochures, magazines en huisstijldrukwerk met oog voor detail. Drukwerk door Captain Media.">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { carbon: '#090B0E', surface: '#141722', neon: { DEFAULT: '#D4FF00', hover: '#E3FF4D' }, amber: { 400: '#F59E0B' } },
-          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], display: ['"Syne"', 'sans-serif'], mono: ['"Space Grotesk"', 'monospace'] }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body class="bg-carbon text-white font-sans antialiased overflow-x-hidden selection:bg-amber-400 selection:text-black">
-  <div class="fixed inset-0 pointer-events-none z-50 opacity-25 grain-overlay"></div>
+<body class="">
 
-  <header id="main-header" class="fixed top-0 left-0 w-full z-40 py-5 px-6 lg:px-12 backdrop-blur-md bg-carbon/80 border-b border-white/5 transition-all">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-3 text-xl font-display font-extrabold tracking-tight text-white">
-        <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
-          <svg class="w-5 h-5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        </div>
-        <div class="flex flex-col">
-          <span class="leading-none text-white tracking-wider flex items-center gap-1.5">CAPTAIN <span class="text-amber-400 text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-400/30">STUDIO</span></span>
-          <span class="text-[10px] font-mono tracking-widest text-zinc-400 uppercase mt-0.5">Media & Content</span>
-        </div>
+  <a class="skip" href="#main">Naar de inhoud</a>
+  <header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="logo" href="../index.html" aria-label="Captain Media, naar de homepage">
+        <img src="../assets/img/captain-media-logo.png" alt="Captain Media" width="623" height="168">
       </a>
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
-        <a href="../cases.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">Cases<span class="nav-indicator"></span></a>
-        <a href="../index.html#diensten" class="text-amber-400 font-semibold py-2 relative">Diensten<span class="absolute bottom-0 left-0 w-full h-0.5 bg-amber-400"></span></a>
-        <a href="../over-ons.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">Over ons<span class="nav-indicator"></span></a>
-        <a href="../contact.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">Contact<span class="nav-indicator"></span></a>
+      <nav class="main-nav" aria-label="Hoofdmenu">
+        <a class="nav-link" href="../cases.html">Cases</a>
+        <div class="has-mega" data-mega>
+          <button class="nav-link is-active" type="button" aria-expanded="false" aria-controls="mega" data-mega-toggle>Diensten <svg class="ico chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mega" id="mega" data-mega-panel>
+            <div class="mega-grid">
+          <div class="mega-col">
+            <a class="mega-head" href="../diensten.html#video"><span class="mono">01</span>Video</a>
+            <ul>
+              <li><a class="mega-link" href="../diensten/bedrijfsfilms.html"><span class="mega-title">Bedrijfsfilms</span><span class="mega-sub">Corporate storytelling</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="../diensten/short-form-content.html"><span class="mega-title">Short form content</span><span class="mega-sub">Reels, TikTok &amp; Shorts</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="../diensten/wervingsvideos.html"><span class="mega-title">Wervingsvideo's</span><span class="mega-sub">Recruitment &amp; employer branding</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="../diensten/aftermovies.html"><span class="mega-title">Aftermovies</span><span class="mega-sub">Events &amp; festivals</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <a class="mega-head" href="../diensten.html#fotografie"><span class="mono">02</span>Fotografie</a>
+            <ul>
+              <li><a class="mega-link" href="../diensten/bedrijfsfotografie.html"><span class="mega-title">Bedrijfsfotografie</span><span class="mega-sub">Team, werkplek &amp; sfeer</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="../diensten/portretten.html"><span class="mega-title">Portretten</span><span class="mega-sub">Headshots &amp; personal branding</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="../diensten/productfotografie.html"><span class="mega-title">Productfotografie</span><span class="mega-sub">Packshots &amp; sfeerbeelden</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <a class="mega-head" href="../diensten.html#design"><span class="mono">03</span>Design</a>
+            <ul>
+              <li><a class="mega-link" href="../diensten/verpakkingsontwerp.html"><span class="mega-title">Verpakkingsontwerp</span><span class="mega-sub">Labels, dozen &amp; sleeves</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="../diensten/drukwerk.html"><span class="mega-title">Drukwerk</span><span class="mega-sub">Brochures, magazines &amp; huisstijl</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="../diensten/flyers-posters-vacatures.html"><span class="mega-title">Flyers, posters en vacatures</span><span class="mega-sub">Campagnes met stopkracht</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+          </div></div>
+            <div class="mega-foot">
+              <span><span class="rec-dot"></span> Video, foto en design onder één dak</span>
+              <a href="../diensten.html">Alle diensten <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <a class="nav-link" href="../over-ons.html">Over ons</a>
+        <a class="nav-link" href="../contact.html">Contact</a>
       </nav>
-      <div class="flex items-center gap-4">
-        <a href="../contact.html" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-400 text-black font-semibold text-xs tracking-wider uppercase hover:bg-amber-300 transition-all">
-          <span>Drukwerk Offerte</span>
-          <i class="ph-bold ph-arrow-up-right"></i>
-        </a>
-      </div>
+      <a class="btn btn-sm btn-light header-cta" href="../contact.html">Plan een gesprek <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <button class="burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu" data-burger><span></span><span></span></button>
     </div>
   </header>
-
-  <main class="pt-36 pb-24 px-6 lg:px-12 max-w-7xl mx-auto">
-    <div class="flex items-center gap-2 text-xs font-mono text-zinc-500 mb-6 uppercase">
-      <a href="../index.html" class="hover:text-white">Home</a>
-      <span>/</span>
-      <a href="../index.html#diensten" class="hover:text-white">Diensten</a>
-      <span>/</span>
-      <span class="text-amber-400">Design: Drukwerk</span>
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav aria-label="Mobiel menu">
+      <a class="m-link" href="../cases.html">Cases</a>
+      <details class="m-group">
+        <summary class="m-link">Diensten <svg class="ico chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="m-pillar"><span class="mono">01 Video</span><a href="../diensten/bedrijfsfilms.html">Bedrijfsfilms</a><a href="../diensten/short-form-content.html">Short form content</a><a href="../diensten/wervingsvideos.html">Wervingsvideo's</a><a href="../diensten/aftermovies.html">Aftermovies</a></div><div class="m-pillar"><span class="mono">02 Fotografie</span><a href="../diensten/bedrijfsfotografie.html">Bedrijfsfotografie</a><a href="../diensten/portretten.html">Portretten</a><a href="../diensten/productfotografie.html">Productfotografie</a></div><div class="m-pillar"><span class="mono">03 Design</span><a href="../diensten/verpakkingsontwerp.html">Verpakkingsontwerp</a><a href="../diensten/drukwerk.html">Drukwerk</a><a href="../diensten/flyers-posters-vacatures.html">Flyers, posters en vacatures</a></div>
+      </details>
+      <a class="m-link" href="../over-ons.html">Over ons</a>
+      <a class="m-link" href="../contact.html">Contact</a>
+    </nav>
+    <div class="m-foot">
+      <a class="btn btn-accent" href="https://wa.me/31634018819" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg> Stuur een WhatsApp</a>
+      <a href="mailto:info@captain-media.nl">info@captain-media.nl</a>
     </div>
+  </div>
+  <main id="main">
 
-    <div class="max-w-4xl mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 font-mono text-xs uppercase tracking-wider mb-4">
-        Discipline • Graphic Design
+  <section class="page-hero has-image svc-hero">
+    <div class="page-hero-media" data-parallax><img class="" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=2200&q=75" srcset="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=480&q=75 480w, https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=75 800w, https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=75 1200w, https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=75 1600w, https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=2200&q=75 2200w" sizes="100vw" alt="" fetchpriority="high" decoding="async"></div>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="Kruimelpad"><a href="../diensten.html">Diensten</a> / <a href="../diensten.html#design">Design</a> / <span aria-current="page">Drukwerk</span></nav>
+      <h1 class="display-xl" data-split data-split-now><span class="w"><span class="wi">Druk<em>werk</em></span></span></h1>
+      <p class="lead" data-reveal>Brochures, magazines en huisstijldrukwerk met oog voor detail.</p>
+      <div class="hero-actions" data-reveal>
+        <a class="btn btn-light" href="../contact.html?dienst=drukwerk">Vraag een offerte aan <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-ghost" href="https://wa.me/31634018819" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg> WhatsApp</a>
       </div>
-      <h1 class="text-4xl sm:text-6xl font-display font-extrabold tracking-tight text-white uppercase leading-none">
-        Exclusief Drukwerk Met <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-white to-zinc-400">Tastbare Perfectie.</span>
-      </h1>
-      <p class="mt-6 text-zinc-300 text-base sm:text-lg leading-relaxed">
-        In een digitale wereld maakt fysiek drukwerk het verschil. Een zwaar grammage papier, foliedruk of blindpreeg creëert een onuitwisbare indruk. Wij ontwerpen en begeleiden luxe brochures, jaarverslagen, magazines en huisstijldrukwerk.
-      </p>
     </div>
-
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-2xl bg-surface/80 border border-white/10 mb-16 text-xs font-mono">
-      <div><span class="text-zinc-500 uppercase block mb-1">Producten</span><span class="text-white font-bold">Magazines & Brochures</span></div>
-      <div><span class="text-zinc-500 uppercase block mb-1">Afwerking</span><span class="text-white font-bold">Spot-UV, Reliëf & Folie</span></div>
-      <div><span class="text-zinc-500 uppercase block mb-1">Papierkeuze</span><span class="text-white font-bold">Gmund, Fedrigoni & FSC</span></div>
-      <div><span class="text-zinc-500 uppercase block mb-1">Begeleiding</span><span class="text-white font-bold">Tot Aan De Voordeur</span></div>
+  </section>
+  <section class="section svc-intro">
+    <div class="wrap svc-intro-grid">
+      <p class="eyebrow" data-reveal>03 · Design</p>
+      <p class="intro-text" data-reveal>Drukwerk voelt anders dan een scherm. Papier, afwerking en typografie bepalen of iemand het bewaart of weggooit. We ontwerpen brochures, magazines, jaarverslagen, visitekaartjes en huisstijldrukwerk dat je merk tastbaar maakt, met bestanden die de drukker in één keer goed kan verwerken.</p>
     </div>
-
-    <div class="p-10 rounded-3xl bg-surface/90 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+  </section>
+  <section class="section deliver">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow" data-reveal>Wat je krijgt</p><h2 class="display-l" data-split><span class="w"><span class="wi">Alles</span></span> <span class="w"><span class="wi">voor</span></span> <span class="w"><span class="wi">een</span></span> <span class="w"><span class="wi"><em>scherp</em></span></span> <span class="w"><span class="wi">resultaat</span></span></h2></div>
+      <ul class="deliver-grid">
+        <li data-reveal><span class="mono">01</span>Brochures &amp; magazines</li><li data-reveal><span class="mono">02</span>Visitekaartjes &amp; briefpapier</li><li data-reveal><span class="mono">03</span>Jaarverslagen &amp; catalogi</li><li data-reveal><span class="mono">04</span>Advies over papier &amp; afwerking</li><li data-reveal><span class="mono">05</span>Drukklare pdf's</li><li data-reveal><span class="mono">06</span>Digitale versies voor web</li>
+      </ul>
+    </div>
+  </section>
+  
+  <section class="section steps">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>Werkwijze</p>
+        <h2 class="display-l" data-split><span class="w"><span class="wi">Van</span></span> <span class="w"><span class="wi">eerste</span></span> <span class="w"><span class="wi">idee</span></span><br><span class="w"><span class="wi">tot</span></span> <span class="w"><span class="wi"><em>laatste</em></span></span> <span class="w"><span class="wi"><em>frame</em></span></span></h2>
+      </div>
+      <ol class="steps-grid">
+        
+        <li class="step" data-reveal>
+          <span class="mono step-no">Scène 01</span>
+          <h3>Kennismaking</h3>
+          <p>We beginnen met een gesprek over je doel, je publiek en je planning. Daarna weet je precies wat we voor je kunnen maken.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="mono step-no">Scène 02</span>
+          <h3>Draaiboek</h3>
+          <p>We werken het idee uit tot een concreet plan: script, shotlist, locaties en planning. Geen verrassingen achteraf.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="mono step-no">Scène 03</span>
+          <h3>Opname</h3>
+          <p>Op de productiedag zijn we er met de juiste crew en apparatuur. Wij regelen het, jij hoeft alleen jezelf te zijn.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="mono step-no">Scène 04</span>
+          <h3>Oplevering</h3>
+          <p>Montage, nabewerking en ontwerp, met twee feedbackrondes. Je krijgt alle formaten die je nodig hebt.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section class="section related">
+    <div class="wrap">
+      <div class="section-head split-head"><div><p class="eyebrow" data-reveal>Gerelateerd werk</p><h2 class="display-l" data-split><span class="w"><span class="wi">Bekijk</span></span> <span class="w"><span class="wi">het</span></span> <span class="w"><span class="wi"><em>in</em></span></span> <span class="w"><span class="wi"><em>actie</em></span></span></h2></div><a class="link-arrow" href="../cases.html" data-reveal>Alle cases <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="cases-grid">
+        <article class="case-card " data-category="design" data-tilt>
+          <a href="../cases/skincare-verpakking.html" data-cursor-label="Bekijk">
+            <div class="case-media"><img class="" src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&h=1500&q=75" srcset="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=480&h=600&q=75 480w, https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&h=1000&q=75 800w, https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&h=1500&q=75 1200w, https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1600&h=2000&q=75 1600w" sizes="(min-width: 900px) 33vw, 90vw" alt="Nordiq Skin: Een verpakking die je wilt aanraken" loading="lazy" decoding="async" width="1200" height="1500"></div>
+            <div class="case-meta">
+              <span class="mono">Design · 2026</span>
+              <h3>Een verpakking die je <em>wilt aanraken</em></h3>
+              <span class="case-client">Nordiq Skin</span>
+            </div>
+          </a>
+        </article></div>
+    </div>
+  </section>
+  <section class="section faq">
+    <div class="wrap faq-grid">
+      <div><p class="eyebrow" data-reveal>Veelgestelde vragen</p><h2 class="display-l" data-split><span class="w"><span class="wi">Goed</span></span> <span class="w"><span class="wi">om</span></span> <span class="w"><span class="wi">te</span></span> <span class="w"><span class="wi"><em>weten</em></span></span></h2></div>
+      <div class="faq-list">
+        <details class="faq-item" data-reveal><summary>Wat is het verschil tussen ontwerp en opmaak?<span class="plus" aria-hidden="true"></span></summary><div class="faq-a"><p>Bij ontwerp bepalen we de stijl en het concept. Bij opmaak zetten we jouw content in een bestaande stijl. We doen allebei.</p></div></details><details class="faq-item" data-reveal><summary>Schrijven jullie ook de teksten?<span class="plus" aria-hidden="true"></span></summary><div class="faq-a"><p>We helpen met redactie en korte teksten. Voor uitgebreide copywriting werken we samen met tekstschrijvers.</p></div></details><details class="faq-item" data-reveal><summary>In welke formaten leveren jullie aan?<span class="plus" aria-hidden="true"></span></summary><div class="faq-a"><p>Drukklare pdf's volgens de specificaties van je drukker, plus een lichte versie voor online gebruik.</p></div></details>
+      </div>
+    </div>
+  </section>
+  <section class="section siblings">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Meer design</p>
+      <ul class="svc-list svc-list-row">
+        <li data-reveal><a href="../diensten/verpakkingsontwerp.html"><span><strong>Verpakkingsontwerp</strong><small>Verpakkingen die opvallen in het schap en kloppen op de drukpers.</small></span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li data-reveal><a href="../diensten/flyers-posters-vacatures.html"><span><strong>Flyers, posters en vacatures</strong><small>Uitingen met stopkracht, online en offline.</small></span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <div class="wrap cta-grid">
       <div>
-        <h3 class="text-2xl font-display font-bold text-white uppercase">Nieuw Magazine Of Brochure Nodig?</h3>
-        <p class="text-xs text-zinc-400 mt-1">Wij sturen desgewenst papiersamples toe ter inspiratie.</p>
+        <p class="eyebrow" data-reveal>Laten we iets moois maken</p>
+        <h2 class="display-xl" data-split><span class="w"><span class="wi">Klaar</span></span> <span class="w"><span class="wi">voor</span></span> <span class="w"><span class="wi">de</span></span> <span class="w"><span class="wi"><em>opname?</em></span></span></h2>
+        <p class="lead" data-reveal>Vertel ons wat je wilt maken. Binnen één werkdag hoor je van ons, met een eerlijk advies en een heldere planning.</p>
       </div>
-      <a href="../contact.html" class="px-8 py-4 rounded-full bg-amber-400 text-black font-bold uppercase text-xs tracking-wider hover:bg-amber-300 transition-all">Drukwerk Sample Aanvragen</a>
+      
+      <div class="callsheet" data-reveal>
+        <div class="cs-top"><span class="mono">Callsheet</span><span class="mono"><span class="rec-dot"></span> Nu beschikbaar</span></div>
+        <dl>
+          <div><dt>Productie</dt><dd>Jouw volgende project</dd></div>
+          <div><dt>Disciplines</dt><dd>Video · Fotografie · Design</dd></div>
+          <div><dt>Locatie</dt><dd>Op locatie, door heel Nederland</dd></div>
+          <div><dt>Bellen</dt><dd><a href="tel:+31634018819">+31 6 34 01 88 19</a></dd></div>
+          <div><dt>Mail</dt><dd><a href="mailto:info@captain-media.nl">info@captain-media.nl</a></dd></div>
+        </dl>
+        <div class="cs-actions">
+          <a class="btn btn-accent" href="https://wa.me/31634018819" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg> WhatsApp</a>
+          <a class="btn btn-ghost" href="../contact.html">Plan een gesprek <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
     </div>
+  </section>
   </main>
 
-  <footer class="bg-carbon border-t border-white/10 py-12 px-6 lg:px-12 text-zinc-500 text-xs">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>© 2026 Captain Media • Tollebeek & Urk, Flevoland</div>
-      <div class="flex gap-6"><a href="../index.html" class="hover:text-white">Home</a><a href="../cases.html" class="hover:text-white">Cases</a><a href="../over-ons.html" class="hover:text-white">Over ons</a><a href="../contact.html" class="hover:text-white">Contact</a></div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="footer-big" href="../contact.html" data-magnetic>
+        <span>Laten we</span> <em>draaien</em> <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="../assets/img/captain-media-logo.png" alt="Captain Media" width="623" height="168" loading="lazy">
+          <p class="muted">Sterk in beeld. Scherp in ontwerp.</p>
+        </div>
+        <div>
+          <p class="mono">Diensten</p>
+          <ul><li><a href="../diensten.html#video">Video</a></li><li><a href="../diensten.html#fotografie">Fotografie</a></li><li><a href="../diensten.html#design">Design</a></li></ul>
+        </div>
+        <div>
+          <p class="mono">Pagina's</p>
+          <ul>
+            <li><a href="../cases.html">Cases</a></li>
+            <li><a href="../over-ons.html">Over ons</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono">Contact</p>
+          <ul>
+            <li><a href="mailto:info@captain-media.nl">info@captain-media.nl</a></li>
+            <li><a href="tel:+31634018819">+31 6 34 01 88 19</a></li>
+            <li><a href="https://wa.me/31634018819" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Captain Media</span>
+        <span class="mono">Conceptontwerp: beelden en cases zijn voorbeeldcontent</span>
+      </div>
     </div>
   </footer>
-  <script src="../main.js"></script>
+  <a class="wa-float" href="https://wa.me/31634018819" target="_blank" rel="noopener" aria-label="Stuur Captain Media een WhatsApp"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg></a>
+  <div class="cursor" data-cursor aria-hidden="true"><span>Bekijk</span></div>
+  <div class="curtain" data-curtain aria-hidden="true"></div>
+  <div class="modal" data-modal hidden>
+    <button class="modal-close" type="button" data-modal-close aria-label="Video sluiten">✕</button>
+    <video data-modal-video controls playsinline preload="none"></video>
+  </div>
+  <script src="../assets/vendor/motion.js"></script>
+  <script src="../assets/js/site.js"></script>
 </body>
 </html>
-

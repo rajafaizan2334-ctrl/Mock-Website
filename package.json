@@ -1,10 +1,12 @@
 {
   "name": "captain-media-website",
-  "version": "1.0.0",
-  "description": "Cinematic website for Captain Media (Video, Photography, Graphic Design)",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Concept website for Captain Media (video, fotografie & design)",
   "scripts": {
+    "build": "node build.mjs",
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node build.mjs && node server.js"
   },
   "dependencies": {
     "motion": "^14.9.0"

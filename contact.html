@@ -1,282 +1,196 @@
-<!DOCTYPE html>
-<html lang="nl" class="scroll-smooth">
+<!doctype html>
+<html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact & Projectaanvraag | Captain Media</title>
-  <meta name="description" content="Neem contact op met Captain Media voor een vrijblijvende offerte of kennismaking over videoproductie, fotografie of grafisch design. Reactie binnen 24 uur.">
-  
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B0D12'/><circle cx='50' cy='50' r='35' stroke='%23D4FF00' stroke-width='8' fill='none'/><polygon points='42,32 68,50 42,68' fill='%23D4FF00'/></svg>">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Captain Media</title>
+  <meta name="description" content="Neem contact op met Captain Media voor video, fotografie of design.">
+  <meta property="og:title" content="Contact | Captain Media">
+  <meta property="og:description" content="Neem contact op met Captain Media voor video, fotografie of design.">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            carbon: '#090B0E',
-            surface: '#141722',
-            neon: {
-              DEFAULT: '#D4FF00',
-              hover: '#E3FF4D',
-            }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Syne"', 'sans-serif'],
-            mono: ['"Space Grotesk"', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
-
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body class="bg-carbon text-white font-sans antialiased overflow-x-hidden selection:bg-neon selection:text-black">
+<body class="">
 
-  <div class="fixed inset-0 pointer-events-none z-50 opacity-25 grain-overlay"></div>
-  <div class="fixed -top-40 -left-40 w-96 h-96 bg-neon/10 rounded-full blur-3xl pointer-events-none"></div>
-
-  <!-- Custom Cursor -->
-  <div id="custom-cursor" class="custom-cursor hidden md:block"></div>
-  <div id="custom-cursor-follower" class="custom-cursor-follower hidden md:block"></div>
-
-  <!-- HEADER -->
-  <header id="main-header" class="fixed top-0 left-0 w-full z-40 py-5 px-6 lg:px-12 backdrop-blur-md bg-carbon/80 border-b border-white/5 transition-all">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 text-xl font-display font-extrabold tracking-tight text-white">
-        <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
-          <svg class="w-5 h-5 text-neon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        </div>
-        <div class="flex flex-col">
-          <span class="leading-none text-white tracking-wider flex items-center gap-1.5">CAPTAIN <span class="text-neon text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-neon/10 border border-neon/30">STUDIO</span></span>
-          <span class="text-[10px] font-mono tracking-widest text-zinc-400 uppercase mt-0.5">Media & Content</span>
-        </div>
+  <a class="skip" href="#main">Naar de inhoud</a>
+  <header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Captain Media, naar de homepage">
+        <img src="assets/img/captain-media-logo.png" alt="Captain Media" width="623" height="168">
       </a>
-
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
-        <a href="cases.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">Cases<span class="nav-indicator"></span></a>
-
-        <!-- Diensten Dropdown -->
-        <div class="relative group">
-          <a href="index.html#diensten" class="nav-link flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors py-2">
-            Diensten
-            <i class="ph ph-caret-down text-xs transition-transform duration-300 group-hover:rotate-180 text-neon"></i>
-            <span class="nav-indicator"></span>
-          </a>
-
-          <div class="mega-dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[840px] p-6 rounded-2xl bg-surface/95 backdrop-blur-2xl border border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-            <div class="grid grid-cols-3 gap-6">
-              <div class="bg-white/[0.02] p-4 rounded-xl border border-white/5">
-                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
-                  <div class="w-8 h-8 rounded-lg bg-neon/10 flex items-center justify-center text-neon"><i class="ph-bold ph-video-camera"></i></div>
-                  <div><h4 class="font-display font-bold text-white text-sm uppercase">Video</h4><span class="text-[11px] text-zinc-400">Cinematografisch</span></div>
-                </div>
-                <ul class="space-y-1">
-                  <li><a href="diensten/bedrijfsfilms.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Bedrijfsfilms</div><div class="text-[11px] text-zinc-500">Corporate storytelling op 4K</div></a></li>
-                  <li><a href="diensten/short-form-content.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Short form content</div><div class="text-[11px] text-zinc-500">Reels, TikTok & social hooks</div></a></li>
-                  <li><a href="diensten/wervingsvideos.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Wervingsvideo's</div><div class="text-[11px] text-zinc-500">Trek top-talent aan</div></a></li>
-                  <li><a href="diensten/aftermovies.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Aftermovies</div><div class="text-[11px] text-zinc-500">Events en festivals</div></a></li>
-                </ul>
-              </div>
-
-              <div class="bg-white/[0.02] p-4 rounded-xl border border-white/5">
-                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
-                  <div class="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400"><i class="ph-bold ph-camera"></i></div>
-                  <div><h4 class="font-display font-bold text-white text-sm uppercase">Fotografie</h4><span class="text-[11px] text-zinc-400">Haarscherpe visuals</span></div>
-                </div>
-                <ul class="space-y-1">
-                  <li><a href="diensten/bedrijfsfotografie.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Bedrijfsfotografie</div><div class="text-[11px] text-zinc-500">Werkplek & sfeer</div></a></li>
-                  <li><a href="diensten/portretten.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Portretten</div><div class="text-[11px] text-zinc-500">Headshots & leiderschap</div></a></li>
-                  <li><a href="diensten/productfotografie.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Productfotografie</div><div class="text-[11px] text-zinc-500">Studio & lifestyle</div></a></li>
-                </ul>
-              </div>
-
-              <div class="bg-white/[0.02] p-4 rounded-xl border border-white/5">
-                <div class="flex items-center gap-2.5 pb-3 mb-3 border-b border-white/10">
-                  <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400"><i class="ph-bold ph-pen-nib"></i></div>
-                  <div><h4 class="font-display font-bold text-white text-sm uppercase">Design</h4><span class="text-[11px] text-zinc-400">Tastbaar & grafisch</span></div>
-                </div>
-                <ul class="space-y-1">
-                  <li><a href="diensten/verpakkingsontwerp.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Verpakkingsontwerp</div><div class="text-[11px] text-zinc-500">Opvallend in het schap</div></a></li>
-                  <li><a href="diensten/drukwerk.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Drukwerk</div><div class="text-[11px] text-zinc-500">Brochures & magazines</div></a></li>
-                  <li><a href="diensten/flyers-posters-vacatures.html" class="service-menu-item"><div class="font-medium text-zinc-200 text-xs">Flyers & posters</div><div class="text-[11px] text-zinc-500">Campagnes met stopkracht</div></a></li>
-                </ul>
-              </div>
+      <nav class="main-nav" aria-label="Hoofdmenu">
+        <a class="nav-link" href="cases.html">Cases</a>
+        <div class="has-mega" data-mega>
+          <button class="nav-link" type="button" aria-expanded="false" aria-controls="mega" data-mega-toggle>Diensten <svg class="ico chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mega" id="mega" data-mega-panel>
+            <div class="mega-grid">
+          <div class="mega-col">
+            <a class="mega-head" href="diensten.html#video"><span class="mono">01</span>Video</a>
+            <ul>
+              <li><a class="mega-link" href="diensten/bedrijfsfilms.html"><span class="mega-title">Bedrijfsfilms</span><span class="mega-sub">Corporate storytelling</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="diensten/short-form-content.html"><span class="mega-title">Short form content</span><span class="mega-sub">Reels, TikTok &amp; Shorts</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="diensten/wervingsvideos.html"><span class="mega-title">Wervingsvideo's</span><span class="mega-sub">Recruitment &amp; employer branding</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="diensten/aftermovies.html"><span class="mega-title">Aftermovies</span><span class="mega-sub">Events &amp; festivals</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <a class="mega-head" href="diensten.html#fotografie"><span class="mono">02</span>Fotografie</a>
+            <ul>
+              <li><a class="mega-link" href="diensten/bedrijfsfotografie.html"><span class="mega-title">Bedrijfsfotografie</span><span class="mega-sub">Team, werkplek &amp; sfeer</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="diensten/portretten.html"><span class="mega-title">Portretten</span><span class="mega-sub">Headshots &amp; personal branding</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="diensten/productfotografie.html"><span class="mega-title">Productfotografie</span><span class="mega-sub">Packshots &amp; sfeerbeelden</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <a class="mega-head" href="diensten.html#design"><span class="mono">03</span>Design</a>
+            <ul>
+              <li><a class="mega-link" href="diensten/verpakkingsontwerp.html"><span class="mega-title">Verpakkingsontwerp</span><span class="mega-sub">Labels, dozen &amp; sleeves</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="diensten/drukwerk.html"><span class="mega-title">Drukwerk</span><span class="mega-sub">Brochures, magazines &amp; huisstijl</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-link" href="diensten/flyers-posters-vacatures.html"><span class="mega-title">Flyers, posters en vacatures</span><span class="mega-sub">Campagnes met stopkracht</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+          </div></div>
+            <div class="mega-foot">
+              <span><span class="rec-dot"></span> Video, foto en design onder één dak</span>
+              <a href="diensten.html">Alle diensten <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
         </div>
-
-        <a href="over-ons.html" class="nav-link text-zinc-300 hover:text-white transition-colors py-2 relative">Over ons<span class="nav-indicator"></span></a>
-
-        <a href="contact.html" class="text-neon font-semibold py-2 relative">
-          Contact
-          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-neon"></span>
-        </a>
+        <a class="nav-link" href="over-ons.html">Over ons</a>
+        <a class="nav-link is-active" href="contact.html" aria-current="page">Contact</a>
       </nav>
-
-      <div class="flex items-center gap-4">
-        <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neon text-black font-semibold text-xs tracking-wider uppercase hover:bg-neon-hover transition-all">
-          <span>Start een project</span>
-          <i class="ph-bold ph-arrow-up-right"></i>
-        </a>
-        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-surface border border-white/10 text-white" aria-label="Menu"><i class="ph-bold ph-list text-2xl"></i></button>
-      </div>
+      <a class="btn btn-sm btn-light header-cta" href="contact.html">Plan een gesprek <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <button class="burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu" data-burger><span></span><span></span></button>
     </div>
   </header>
-
-  <!-- CONTACT HERO & FORM -->
-  <main class="pt-36 pb-24 px-6 lg:px-12 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-      
-      <!-- Info Left -->
-      <div>
-        <div class="inline-flex items-center gap-2 text-neon text-xs font-mono uppercase tracking-widest mb-4">
-          <span class="w-1.5 h-1.5 rounded-full bg-neon"></span>
-          <span>Contact & Kennismaking</span>
-        </div>
-        <h1 class="text-4xl sm:text-6xl font-display font-extrabold tracking-tight text-white uppercase leading-none mb-6">
-          Laat Van Je <br/>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon via-white to-zinc-400">Horen.</span>
-        </h1>
-        <p class="text-zinc-300 text-base leading-relaxed mb-8">
-          Benieuwd wat een cinematografische bedrijfsfilm, professionele fotoserie of nieuw verpakkingsontwerp voor jouw merk kan betekenen? Vul het formulier in of neem direct contact op.
-        </p>
-
-        <!-- Direct Contact Cards -->
-        <div class="space-y-4 mb-10">
-          <a href="mailto:info@captain-media.nl" class="flex items-center gap-4 p-4 rounded-2xl bg-surface border border-white/10 hover:border-neon/50 transition-all">
-            <div class="w-12 h-12 rounded-xl bg-neon/10 text-neon flex items-center justify-center text-xl">
-              <i class="ph-bold ph-envelope-simple"></i>
-            </div>
-            <div>
-              <div class="text-[11px] font-mono uppercase text-zinc-500">Stuur ons een bericht</div>
-              <div class="text-sm font-bold text-white">info@captain-media.nl</div>
-            </div>
-          </a>
-
-          <a href="https://wa.me/31600000000" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-2xl bg-surface border border-white/10 hover:border-emerald-400/50 transition-all">
-            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
-              <i class="ph-bold ph-whatsapp-logo"></i>
-            </div>
-            <div>
-              <div class="text-[11px] font-mono uppercase text-zinc-500">Snel schakelen via WhatsApp</div>
-              <div class="text-sm font-bold text-white">Direct appen met de producer</div>
-            </div>
-          </a>
-
-          <div class="flex items-center gap-4 p-4 rounded-2xl bg-surface border border-white/10">
-            <div class="w-12 h-12 rounded-xl bg-white/5 text-zinc-300 flex items-center justify-center text-xl">
-              <i class="ph-bold ph-map-pin"></i>
-            </div>
-            <div>
-              <div class="text-[11px] font-mono uppercase text-zinc-500">Hoofdkantoor Studio</div>
-              <div class="text-sm font-bold text-white">Tollebeek & Urk, Flevoland (Actief in heel NL)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Working Hours & Guarantee -->
-        <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5 text-xs text-zinc-400 space-y-2 font-mono">
-          <div class="flex items-center justify-between">
-            <span>Reactietijd:</span>
-            <span class="text-neon font-bold">Binnen 24 uur gegarandeerd</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span>Kantooruren:</span>
-            <span>Ma t/m Vr: 08:30 - 18:00</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span>KvK Nummer:</span>
-            <span>84930219</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Form Right -->
-      <div class="bg-surface/90 rounded-3xl p-8 sm:p-10 border border-white/10 shadow-2xl backdrop-blur-xl">
-        <h2 class="text-2xl font-display font-bold text-white uppercase mb-2">Vraag Een Offerte Aan</h2>
-        <p class="text-xs text-zinc-400 mb-6">Geheel vrijblijvend. We nemen snel contact met je op.</p>
-
-        <form id="contact-form" class="space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label for="name" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Naam *</label>
-              <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm" placeholder="Jan de Vries">
-            </div>
-            <div>
-              <label for="company" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Bedrijfsnaam</label>
-              <input type="text" id="company" class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm" placeholder="De Vries B.V.">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label for="email" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">E-mailadres *</label>
-              <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm" placeholder="jan@bedrijf.nl">
-            </div>
-            <div>
-              <label for="phone" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Telefoonnummer</label>
-              <input type="tel" id="phone" class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm" placeholder="06 12345678">
-            </div>
-          </div>
-
-          <div>
-            <label for="service-select" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Selecteer Dienst *</label>
-            <select id="service-select" required class="w-full px-4 py-3 rounded-xl bg-carbon border border-white/10 focus:border-neon focus:outline-none text-white text-sm">
-              <optgroup label="Video Productie">
-                <option value="video-bedrijfsfilms">Bedrijfsfilms (Corporate Films)</option>
-                <option value="video-shortform">Short form content (TikTok / Reels)</option>
-                <option value="video-werving">Wervingsvideo's (Recruitment)</option>
-                <option value="video-aftermovies">Aftermovies (Events & Festivals)</option>
-              </optgroup>
-              <optgroup label="Fotografie">
-                <option value="foto-bedrijf">Bedrijfsfotografie (Corporate Photography)</option>
-                <option value="foto-portretten">Portretten (Headshots & Leadership)</option>
-                <option value="foto-product">Productfotografie (Studio & E-commerce)</option>
-              </optgroup>
-              <optgroup label="Design">
-                <option value="design-verpakking">Verpakkingsontwerp (Packaging Design)</option>
-                <option value="design-drukwerk">Drukwerk (Brochures & Magazines)</option>
-                <option value="design-flyers">Flyers, posters en vacatures</option>
-              </optgroup>
-              <option value="all-in-one">Complete Multimedia Campagne (All-in-One)</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="message" class="block text-xs font-mono text-zinc-300 mb-1.5 uppercase tracking-wider">Projectbeschrijving & Wensen *</label>
-            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-neon focus:outline-none text-white text-sm resize-none" placeholder="Beschrijf in het kort het doel van de productie, de gewenste opleverdatum en eventuele budgettaire indicaties."></textarea>
-          </div>
-
-          <button type="submit" class="w-full py-4 rounded-xl bg-neon text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-neon-hover transition-all flex items-center justify-center gap-2">
-            <span>Verstuur Projectaanvraag</span>
-            <i class="ph-bold ph-paper-plane-right"></i>
-          </button>
-        </form>
-      </div>
-
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav aria-label="Mobiel menu">
+      <a class="m-link" href="cases.html">Cases</a>
+      <details class="m-group">
+        <summary class="m-link">Diensten <svg class="ico chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="m-pillar"><span class="mono">01 Video</span><a href="diensten/bedrijfsfilms.html">Bedrijfsfilms</a><a href="diensten/short-form-content.html">Short form content</a><a href="diensten/wervingsvideos.html">Wervingsvideo's</a><a href="diensten/aftermovies.html">Aftermovies</a></div><div class="m-pillar"><span class="mono">02 Fotografie</span><a href="diensten/bedrijfsfotografie.html">Bedrijfsfotografie</a><a href="diensten/portretten.html">Portretten</a><a href="diensten/productfotografie.html">Productfotografie</a></div><div class="m-pillar"><span class="mono">03 Design</span><a href="diensten/verpakkingsontwerp.html">Verpakkingsontwerp</a><a href="diensten/drukwerk.html">Drukwerk</a><a href="diensten/flyers-posters-vacatures.html">Flyers, posters en vacatures</a></div>
+      </details>
+      <a class="m-link" href="over-ons.html">Over ons</a>
+      <a class="m-link" href="contact.html">Contact</a>
+    </nav>
+    <div class="m-foot">
+      <a class="btn btn-accent" href="https://wa.me/31634018819" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg> Stuur een WhatsApp</a>
+      <a href="mailto:info@captain-media.nl">info@captain-media.nl</a>
     </div>
+  </div>
+  <main id="main">
+
+  
+  <section class="page-hero">
+    
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Contact</p>
+      <h1 class="display-xl" data-split><span class="w"><span class="wi">Vertel</span></span> <span class="w"><span class="wi">ons</span></span> <span class="w"><span class="wi">je</span></span> <span class="w"><span class="wi"><em>verhaal</em></span></span></h1>
+      <p class="lead" data-reveal>Vul het draaiboek hieronder in, of stuur direct een WhatsApp. Binnen één werkdag hoor je van ons.</p>
+    </div>
+  </section>
+  <section class="section contact">
+    <div class="wrap contact-grid">
+      <form class="brief" data-form novalidate>
+        <div class="brief-top"><span class="mono">Draaiboek · nieuw project</span><span class="mono" data-timecode-static>SCÈNE 01</span></div>
+        <div class="field-row">
+          <div class="field"><label for="f-naam">Naam</label><input id="f-naam" name="naam" autocomplete="name" required><p class="err" id="e-naam">Vul je naam in.</p></div>
+          <div class="field"><label for="f-bedrijf">Bedrijf <span class="opt">(optioneel)</span></label><input id="f-bedrijf" name="bedrijf" autocomplete="organization"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required><p class="err" id="e-mail">Vul een geldig e-mailadres in.</p></div>
+          <div class="field"><label for="f-tel">Telefoon <span class="opt">(optioneel)</span></label><input id="f-tel" name="telefoon" type="tel" autocomplete="tel"></div>
+        </div>
+        <fieldset class="field">
+          <legend>Waar kunnen we je mee helpen?</legend>
+          <div class="chips"><label class="chip"><input type="checkbox" name="dienst" value="bedrijfsfilms"><span>Bedrijfsfilms</span></label><label class="chip"><input type="checkbox" name="dienst" value="short-form-content"><span>Short form content</span></label><label class="chip"><input type="checkbox" name="dienst" value="wervingsvideos"><span>Wervingsvideo's</span></label><label class="chip"><input type="checkbox" name="dienst" value="aftermovies"><span>Aftermovies</span></label><label class="chip"><input type="checkbox" name="dienst" value="bedrijfsfotografie"><span>Bedrijfsfotografie</span></label><label class="chip"><input type="checkbox" name="dienst" value="portretten"><span>Portretten</span></label><label class="chip"><input type="checkbox" name="dienst" value="productfotografie"><span>Productfotografie</span></label><label class="chip"><input type="checkbox" name="dienst" value="verpakkingsontwerp"><span>Verpakkingsontwerp</span></label><label class="chip"><input type="checkbox" name="dienst" value="drukwerk"><span>Drukwerk</span></label><label class="chip"><input type="checkbox" name="dienst" value="flyers-posters-vacatures"><span>Flyers, posters en vacatures</span></label></div>
+        </fieldset>
+        <div class="field">
+          <label for="f-budget">Indicatie budget</label>
+          <select id="f-budget" name="budget">
+            <option value="">Maak een keuze</option>
+            <option>Tot € 2.500</option>
+            <option>€ 2.500 – € 5.000</option>
+            <option>€ 5.000 – € 10.000</option>
+            <option>Meer dan € 10.000</option>
+            <option>Weet ik nog niet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-bericht">Vertel kort over je project</label>
+          <textarea id="f-bericht" name="bericht" rows="5" required></textarea>
+          <p class="err" id="e-bericht">Vertel ons kort wat je wilt maken.</p>
+        </div>
+        <button class="btn btn-accent btn-block" type="submit">Verstuur draaiboek <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="form-success" role="status" hidden>
+          <h3>Bedankt, <em>we gaan aan de slag.</em></h3>
+          <p>Je bericht is ontvangen. Binnen één werkdag nemen we contact met je op.</p>
+        </div>
+      </form>
+      <aside class="contact-aside">
+        
+      <div class="callsheet" data-reveal>
+        <div class="cs-top"><span class="mono">Callsheet</span><span class="mono"><span class="rec-dot"></span> Nu beschikbaar</span></div>
+        <dl>
+          <div><dt>Productie</dt><dd>Jouw volgende project</dd></div>
+          <div><dt>Disciplines</dt><dd>Video · Fotografie · Design</dd></div>
+          <div><dt>Locatie</dt><dd>Op locatie, door heel Nederland</dd></div>
+          <div><dt>Bellen</dt><dd><a href="tel:+31634018819">+31 6 34 01 88 19</a></dd></div>
+          <div><dt>Mail</dt><dd><a href="mailto:info@captain-media.nl">info@captain-media.nl</a></dd></div>
+        </dl>
+        <div class="cs-actions">
+          <a class="btn btn-accent" href="https://wa.me/31634018819" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg> WhatsApp</a>
+          <a class="btn btn-ghost" href="contact.html">Plan een gesprek <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      </aside>
+    </div>
+  </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-carbon border-t border-white/10 py-12 px-6 lg:px-12 text-zinc-500 text-xs">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>© 2026 Captain Media • Tollebeek & Urk, Flevoland</div>
-      <div class="flex gap-6"><a href="index.html" class="hover:text-white">Home</a><a href="cases.html" class="hover:text-white">Cases</a><a href="over-ons.html" class="hover:text-white">Over ons</a><a href="contact.html" class="text-neon">Contact</a></div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="footer-big" href="contact.html" data-magnetic>
+        <span>Laten we</span> <em>draaien</em> <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="assets/img/captain-media-logo.png" alt="Captain Media" width="623" height="168" loading="lazy">
+          <p class="muted">Sterk in beeld. Scherp in ontwerp.</p>
+        </div>
+        <div>
+          <p class="mono">Diensten</p>
+          <ul><li><a href="diensten.html#video">Video</a></li><li><a href="diensten.html#fotografie">Fotografie</a></li><li><a href="diensten.html#design">Design</a></li></ul>
+        </div>
+        <div>
+          <p class="mono">Pagina's</p>
+          <ul>
+            <li><a href="cases.html">Cases</a></li>
+            <li><a href="over-ons.html">Over ons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono">Contact</p>
+          <ul>
+            <li><a href="mailto:info@captain-media.nl">info@captain-media.nl</a></li>
+            <li><a href="tel:+31634018819">+31 6 34 01 88 19</a></li>
+            <li><a href="https://wa.me/31634018819" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Captain Media</span>
+        <span class="mono">Conceptontwerp: beelden en cases zijn voorbeeldcontent</span>
+      </div>
     </div>
   </footer>
-
-  <script src="main.js"></script>
+  <a class="wa-float" href="https://wa.me/31634018819" target="_blank" rel="noopener" aria-label="Stuur Captain Media een WhatsApp"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg></a>
+  <div class="cursor" data-cursor aria-hidden="true"><span>Bekijk</span></div>
+  <div class="curtain" data-curtain aria-hidden="true"></div>
+  <div class="modal" data-modal hidden>
+    <button class="modal-close" type="button" data-modal-close aria-label="Video sluiten">✕</button>
+    <video data-modal-video controls playsinline preload="none"></video>
+  </div>
+  <script src="assets/vendor/motion.js"></script>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
-
