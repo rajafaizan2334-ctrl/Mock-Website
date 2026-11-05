@@ -75,7 +75,9 @@
     h = h.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
     h = h.replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
     h = h.replace(/^(?:- |• )(.*)$/gm, "<li>$1</li>").replace(/(<li>[\s\S]*?<\/li>)(?!\s*<li>)/g, "<ul>$1</ul>");
-    return h.replace(/\n{2,}/g, "<br><br>").replace(/\n(?!<\/?(ul|li))/g, "<br>");
+    h = h.replace(/\n{2,}/g, "<br><br>").replace(/\n(?!<\/?(ul|li))/g, "<br>");
+    // no stray line breaks directly around lists
+    return h.replace(/(<br>\s*)+(<ul>)/g, "$2").replace(/(<\/ul>)(\s*<br>)+/g, "$1").replace(/<\/li>\s*<br>/g, "</li>").replace(/\n/g, "");
   }
   function add(role, text) {
     var el = document.createElement("div");
