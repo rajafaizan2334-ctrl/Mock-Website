@@ -82,7 +82,7 @@ function header(r, current) {
           <div class="mega" id="mega" data-mega-panel>
             <div class="mega-grid">${pillars.map(col).join("")}</div>
             <div class="mega-foot">
-              <span><span class="rec-dot"></span> Video, foto en design onder één dak</span>
+              <span><span class="rec-dot"></span> Video, foto, design en AI onder één dak</span>
               <a href="${r}diensten.html">Alle diensten ${arrowRight}</a>
             </div>
           </div>
@@ -124,7 +124,7 @@ function callsheet(r) {
         <div class="cs-top"><span class="mono">Callsheet</span><span class="mono"><span class="rec-dot"></span> Nu beschikbaar</span></div>
         <dl>
           <div><dt>Productie</dt><dd>Jouw volgende project</dd></div>
-          <div><dt>Disciplines</dt><dd>Video · Fotografie · Design</dd></div>
+          <div><dt>Disciplines</dt><dd>Video · Fotografie · Design · AI</dd></div>
           <div><dt>Locatie</dt><dd>Op locatie, door heel Nederland</dd></div>
           <div><dt>Bellen</dt><dd><a href="tel:${site.phoneHref}">${site.phone}</a></dd></div>
           <div><dt>Mail</dt><dd><a href="mailto:${site.email}">${site.email}</a></dd></div>
@@ -225,6 +225,8 @@ ${footer(r)}
   </div>
   <script src="${r}assets/vendor/motion.js"></script>
   <script src="${r}assets/js/site.js"></script>
+  <script>window.CM_CHAT = { webhookUrl: ${JSON.stringify(site.chatWebhook || "")}, whatsapp: ${JSON.stringify(site.whatsapp)} };</script>
+  <script src="${r}assets/js/chat.js" defer></script>
 </body>
 </html>
 `;
@@ -330,7 +332,7 @@ function homePage() {
       <div class="section-head split-head">
         <div>
           <p class="eyebrow" data-reveal>Wat we doen</p>
-          <h2 class="display-l" data-split>${split("Drie disciplines.|*Eén* verhaal.")}</h2>
+          <h2 class="display-l" data-split>${split("Vier disciplines.|*Eén* team.")}</h2>
         </div>
         <a class="link-arrow" href="diensten.html" data-reveal>Alle diensten ${arrowRight}</a>
       </div>
@@ -396,8 +398,8 @@ function homePage() {
 
   ${ctaBlock(r)}`;
   return layout({
-    title: "Captain Media | Video, fotografie & design",
-    desc: "Captain Media maakt cinematische video, fotografie en grafisch ontwerp. Sterk in beeld. Scherp in ontwerp.",
+    title: "Captain Media | Video, fotografie, design & AI",
+    desc: "Captain Media maakt cinematische video, fotografie en grafisch ontwerp, en helpt bedrijven slimmer werken met AI. Sterk in beeld. Scherp in ontwerp.",
     body,
     bodyClass: "page-home",
   });
@@ -412,7 +414,7 @@ function casesPage() {
     <div class="wrap">
       <div class="filters" role="group" aria-label="Filter cases" data-filters>
         <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Alles <sup>${cases.length}</sup></button>
-        ${pillars.map((p) => `<button type="button" class="filter" data-filter="${p.key}" aria-pressed="false">${p.title} <sup>${count(p.key)}</sup></button>`).join("")}
+        ${pillars.filter((p) => count(p.key)).map((p) => `<button type="button" class="filter" data-filter="${p.key}" aria-pressed="false">${p.title} <sup>${count(p.key)}</sup></button>`).join("")}
       </div>
       <div class="cases-grid" data-cases-grid>
         ${cases.map((c) => caseCard(c, r)).join("")}
@@ -484,7 +486,7 @@ function casePage(c, i) {
 function dienstenPage() {
   const r = "";
   const body = `
-  ${pageHero({ eyebrow: "Diensten", title: "Video, fotografie|*en design*", text: "Tien diensten, één team. Kies wat je nodig hebt, of combineer disciplines voor een campagne die overal hetzelfde voelt.", r })}
+  ${pageHero({ eyebrow: "Diensten", title: "Video, foto, design|*en AI*", text: "Veertien diensten, één team. Kies wat je nodig hebt, of combineer disciplines: van een campagne die overal hetzelfde voelt tot AI die je klanten 24/7 helpt.", r })}
   ${pillars
     .map(
       (p, i) => `
@@ -507,7 +509,7 @@ function dienstenPage() {
     )
     .join("")}
   ${ctaBlock(r)}`;
-  return layout({ title: "Diensten | Captain Media", desc: "Bedrijfsfilms, short form content, wervingsvideo's, aftermovies, fotografie en grafisch ontwerp door Captain Media.", current: "diensten", body });
+  return layout({ title: "Diensten | Captain Media", desc: "Bedrijfsfilms, short form content, wervingsvideo's, aftermovies, fotografie, grafisch ontwerp en AI-oplossingen zoals chatbots en automatiseringen door Captain Media.", current: "diensten", body });
 }
 
 function servicePage(s) {

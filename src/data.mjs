@@ -5,6 +5,8 @@ export const site = {
   phone: "+31 6 34 01 88 19",
   phoneHref: "+31634018819",
   whatsapp: "https://wa.me/31634018819",
+  // n8n Chat Trigger webhook URL for the AI assistant. Empty = chat widget hidden.
+  chatWebhook: "https://n8n.axonnmatrix.tech/webhook/dbd7eabd-1c12-44ad-8fc7-78be6fbbe16b",
   heroVideo: "https://assets.mixkit.co/videos/40897/40897-720.mp4",
   heroPoster: "1478720568477-152d9b164e26",
 };
@@ -33,6 +35,14 @@ export const pillars = [
     lead: "Ontwerp dat je kunt vastpakken",
     text: "Verpakkingen, drukwerk en campagnes die opvallen in het schap, op de muur en in de feed.",
     img: "1561070791-2526d30994b5",
+  },
+  {
+    key: "ai",
+    no: "04",
+    title: "AI",
+    lead: "Slimmer werken met AI",
+    text: "Chatbots, WhatsApp-assistenten en automatiseringen die je klanten 24/7 helpen en jou uren werk per week besparen. Praktisch, betaalbaar en op maat.",
+    img: "1677442136019-21780ecad995",
   },
 ];
 
@@ -276,6 +286,102 @@ export const services = [
       ["Leveren jullie ook formaten voor social media?", "Ja, elke uiting leveren we ook aan in formaten voor Instagram, LinkedIn en Facebook."],
     ],
     img: "1626785774573-4b799315345d",
+  },
+  {
+    pillar: "ai",
+    slug: "ai-chatbot",
+    title: "AI chatbot",
+    heading: "AI *chatbot*",
+    menu: "24/7 klantvragen beantwoorden",
+    short: "Een chatbot op je website die je klanten dag en nacht helpt en leads binnenhaalt.",
+    intro:
+      "Een AI chatbot die écht weet waar je bedrijf over gaat. We trainen hem op jouw producten, prijzen, diensten en veelgestelde vragen. Hij beantwoordt vragen 24/7 in het Nederlands en Engels, geeft advies, verwijst naar de juiste pagina en verzamelt aanvragen met alle gegevens. Lastige vraag? Dan draagt hij het gesprek netjes over aan jou of je team.",
+    deliverables: [
+      "Training op jouw producten, prijzen en FAQ",
+      "Chatvenster in jouw huisstijl",
+      "Leads en aanvragen direct naar mail of WhatsApp",
+      "Overdracht naar een medewerker",
+      "Nederlands en Engels",
+      "Maandelijks overzicht van gesprekken en leads",
+    ],
+    faqs: [
+      ["Kan de chatbot fouten maken?", "We stellen hem zo in dat hij alleen antwoordt op basis van jouw eigen informatie. Weet hij het niet zeker, dan verwijst hij door naar je team in plaats van te gokken."],
+      ["Wat kost een AI chatbot?", "Je betaalt een eenmalig bedrag voor de inrichting en daarna een vast bedrag per maand voor hosting, AI-gebruik en onderhoud. Zo weet je vooraf precies waar je aan toe bent."],
+      ["Hoe zit het met privacy?", "We werken AVG-proof: bezoekers zien dat ze met een AI-assistent praten en gegevens worden alleen gebruikt voor het afhandelen van hun vraag."],
+    ],
+    img: "1525547719571-a2d4ac8945e2",
+  },
+  {
+    pillar: "ai",
+    slug: "whatsapp-assistent",
+    title: "WhatsApp assistent",
+    heading: "WhatsApp *assistent*",
+    menu: "Direct antwoord via WhatsApp",
+    short: "Je klanten krijgen direct antwoord via WhatsApp, jij krijgt complete aanvragen.",
+    intro:
+      "Veel klanten appen liever dan dat ze bellen. Een AI-assistent op je WhatsApp Business-nummer geeft direct antwoord, stelt de juiste vervolgvragen en zet een complete aanvraag voor je klaar: wat, wanneer, waar en voor wie. Geen eindeloos heen-en-weer appen meer, en geen gemiste berichten in het weekend.",
+    deliverables: [
+      "Koppeling met WhatsApp Business",
+      "Direct antwoord, ook 's avonds en in het weekend",
+      "Slimme vervolgvragen per type aanvraag",
+      "Complete aanvraag naar jou of je planning",
+      "Doorschakelen naar een medewerker",
+      "Herinneringen en opvolgberichten",
+    ],
+    faqs: [
+      ["Werkt dit met mijn huidige WhatsApp-nummer?", "Ja, in de meeste gevallen koppelen we je bestaande WhatsApp Business-nummer. Je kunt zelf altijd meelezen en overnemen."],
+      ["Merken klanten dat het AI is?", "Ja, dat maken we altijd duidelijk. Klanten waarderen vooral dat ze direct een goed antwoord krijgen."],
+      ["Kan ik zelf nog berichten sturen?", "Zeker. Jij of je team kunnen elk gesprek overnemen. De assistent stopt dan automatisch."],
+    ],
+    img: "1600880292203-757bb62b4baf",
+  },
+  {
+    pillar: "ai",
+    slug: "automatiseringen",
+    title: "Automatiseringen",
+    heading: "Slimme *automatiseringen*",
+    menu: "Repeterend werk automatisch",
+    short: "Offertes, opvolging, administratie en planning: wat steeds terugkomt, doet AI voor je.",
+    intro:
+      "Elke week gaan er uren op aan taken die steeds hetzelfde zijn: offertes maken, aanvragen overtypen, klanten opvolgen, herinneringen sturen. Wij brengen je processen in kaart en automatiseren ze met AI en n8n. Jij houdt de controle, het systeem doet het werk. Zo houd je tijd over voor je klanten en je vak.",
+    deliverables: [
+      "Analyse van je processen en tijdvreters",
+      "Automatische offertes in je eigen sjabloon",
+      "Aanvragen centraal in één overzicht",
+      "Herinneringen, opvolging en reviewverzoeken",
+      "Koppelingen met mail, agenda en je software",
+      "Beheer, monitoring en onderhoud",
+    ],
+    faqs: [
+      ["Welke taken kun je automatiseren?", "Bijna alles wat steeds terugkomt: offertes, bevestigingen, herinneringen, facturen klaarzetten, aanvragen verwerken en reviews opvragen. In een kennismaking kijken we wat jou het meeste tijd scheelt."],
+      ["Moet ik nieuwe software gaan gebruiken?", "Meestal niet. We koppelen juist de tools die je al gebruikt, zoals je mail, agenda, website en boekhouding."],
+      ["Hoe snel zie ik resultaat?", "Een eerste automatisering staat vaak binnen één tot twee weken. Daarna breiden we stap voor stap uit."],
+    ],
+    img: "1573164713988-8665fc963095",
+  },
+  {
+    pillar: "ai",
+    slug: "ai-telefoonassistent",
+    title: "AI telefoonassistent",
+    heading: "AI *telefoon*assistent",
+    menu: "Nooit meer een gemiste oproep",
+    short: "Een stem-assistent die opneemt als jij het niet kunt, en je een samenvatting stuurt.",
+    intro:
+      "Een gemiste oproep is vaak een gemiste klant. De AI telefoonassistent neemt op wanneer jij bezig bent of na sluitingstijd, beantwoordt eenvoudige vragen, noteert wat de beller nodig heeft en kan afspraken inplannen. Na elk gesprek krijg je een korte samenvatting, zodat je precies weet wie je moet terugbellen.",
+    deliverables: [
+      "Natuurlijke Nederlandse stem",
+      "Opnemen bij drukte of buiten openingstijden",
+      "Antwoord op veelgestelde vragen",
+      "Afspraken inplannen in je agenda",
+      "Samenvatting van elk gesprek",
+      "Doorverbinden bij spoed",
+    ],
+    faqs: [
+      ["Klinkt het als een robot?", "Nee, de stemmen klinken natuurlijk. We laten je vooraf een demo horen, zodat je zelf hoort hoe het werkt."],
+      ["Wat als iemand echt iemand wil spreken?", "Dan verbindt de assistent door of zorgt hij voor een terugbelverzoek met alle gegevens."],
+      ["Kan ik het eerst testen?", "Ja, we starten graag met een testperiode, zodat je eerst ziet wat het oplevert."],
+    ],
+    img: "1587560699334-cc4ff634909a",
   },
 ];
 

@@ -7,7 +7,7 @@ A clickable concept for the new Captain Media website: cinematic, bold typograph
 - **Quickest:** open `index.html` in a browser. Everything works from disk.
 - **Local server:** `npm install`, then `npm run dev`, then open http://localhost:3000
 
-## Pages (22)
+## Pages (26)
 
 | Page | File |
 |---|---|
@@ -15,11 +15,11 @@ A clickable concept for the new Captain Media website: cinematic, bold typograph
 | Cases overview with filters | `cases.html` |
 | Case detail (7, one template) | `cases/*.html` |
 | Services overview | `diensten.html` |
-| Service pages (10, one template) | `diensten/*.html` |
+| Service pages (14, one template) | `diensten/*.html` |
 | About | `over-ons.html` |
 | Contact (production-brief form + callsheet) | `contact.html` |
 
-Navigation is Cases | Diensten | Over ons | Contact. Diensten opens a three-column mega menu (Video, Fotografie, Design) where every service links to its own page.
+Navigation is Cases | Diensten | Over ons | Contact. Diensten opens a four-column mega menu (Video, Fotografie, Design, AI) where every service links to its own page.
 
 ## How it is built
 
