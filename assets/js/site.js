@@ -317,11 +317,22 @@
   const modal = $("[data-modal]");
   if (modal) {
     const mv = $("[data-modal-video]", modal);
+    const frame = $("[data-modal-embed]", modal);
     let opener;
+    // YouTube / Vimeo links play in an iframe, everything else as an MP4 file
+    const embedUrl = (url) => {
+      const yt = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/);
+      if (yt) return `https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&rel=0&modestbranding=1`;
+      const vm = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/);
+      if (vm) return `https://player.vimeo.com/video/${vm[1]}?autoplay=1${vm[2] ? "&h=" + vm[2] : ""}`;
+      return null;
+    };
     const closeModal = () => {
       mv.pause();
       mv.removeAttribute("src");
       mv.load();
+      if (frame) { frame.src = "about:blank"; frame.hidden = true; }
+      mv.hidden = false;
       modal.hidden = true;
       document.body.style.overflow = "";
       if (opener) opener.focus();
@@ -329,12 +340,22 @@
     $$("[data-play]").forEach((b) =>
       b.addEventListener("click", () => {
         opener = b;
-        mv.src = b.dataset.play;
+        const url = b.dataset.play;
+        const embed = frame && embedUrl(url);
+        if (embed) {
+          mv.hidden = true;
+          frame.hidden = false;
+          frame.src = embed;
+        } else {
+          if (frame) frame.hidden = true;
+          mv.hidden = false;
+          mv.src = url;
+          mv.play().catch(() => {});
+        }
         modal.hidden = false;
         document.body.style.overflow = "hidden";
         if (!reduced) animate(modal, { opacity: [0, 1] }, { duration: 0.3 });
         $("[data-modal-close]", modal).focus();
-        mv.play().catch(() => {});
       })
     );
     $("[data-modal-close]", modal).addEventListener("click", closeModal);

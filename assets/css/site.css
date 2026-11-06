@@ -557,3 +557,12 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
   .disc-card-body h3 { font-size: 20px; }
   .disc-card-tags { display: none; }
 }
+.modal iframe { width: min(1280px, 92vw); aspect-ratio: 16 / 9; border: 0; border-radius: var(--radius); background: #000; }
+.modal iframe[hidden], .modal video[hidden] { display: none; }
+.film-frame.is-still { margin: 0; cursor: default; }
+
+/* hero: calmer headline so the video carries the page (like beeldfanaat) */
+.display-hero { font-size: clamp(42px, 6.2vw, 96px); line-height: 0.95; letter-spacing: -0.045em; max-width: 14ch; }
+.hero-content { padding-top: calc(var(--header-h) + 80px); }
+.hero-bottom { margin-top: clamp(20px, 2.6vw, 32px); }
+@media (max-width: 560px) { .display-hero { font-size: clamp(40px, 11vw, 52px); } }

@@ -110,11 +110,10 @@
   </section>
   <section class="case-film">
     <div class="wrap">
-      <button class="film-frame" type="button" data-play="https://assets.mixkit.co/videos/40897/40897-720.mp4" data-cursor-label="Afspelen" aria-label="Video van Lumen Architecten afspelen">
-        <img class="" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=2000&h=1125&q=75" srcset="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=480&h=270&q=75 480w, https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&h=450&q=75 800w, https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&h=675&q=75 1200w, https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&h=900&q=75 1600w, https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=2200&h=1238&q=75 2200w" sizes="(min-width: 1400px) 1320px, 94vw" alt="" loading="lazy" decoding="async" width="2000" height="1125">
-        <span class="film-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+      <figure class="film-frame is-still">
+        <img class="" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=2000&h=1125&q=75" srcset="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=480&h=270&q=75 480w, https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&h=450&q=75 800w, https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&h=675&q=75 1200w, https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&h=900&q=75 1600w, https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=2200&h=1238&q=75 2200w" sizes="(min-width: 1400px) 1320px, 94vw" alt="Lumen Architecten" loading="lazy" decoding="async" width="2000" height="1125">
         <span class="film-hud mono"><span class="rec-dot"></span> LUMEN ARCHITECTEN · 2025</span>
-      </button>
+      </figure>
     </div>
   </section>
   <section class="section gallery">
@@ -174,6 +173,7 @@
   <div class="modal" data-modal hidden>
     <button class="modal-close" type="button" data-modal-close aria-label="Video sluiten">✕</button>
     <video data-modal-video controls playsinline preload="none"></video>
+    <iframe data-modal-embed title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen hidden></iframe>
   </div>
   <script src="../assets/vendor/motion.js"></script>
   <script src="../assets/js/site.js"></script>

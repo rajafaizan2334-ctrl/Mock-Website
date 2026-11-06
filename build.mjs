@@ -37,12 +37,19 @@ function split(text) {
     .join("<br>");
 }
 
+// Local media (own photos/stills) live in /assets/media; anything else is an Unsplash photo id.
+const isLocal = (id) => typeof id === "string" && id.startsWith("/");
 function src(id, w, h) {
+  if (isLocal(id)) return id;
   return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}${h ? `&h=${h}` : ""}&q=75`;
 }
 
 function img(id, alt, { w = 1600, ratio, sizes = "100vw", eager = false, cls = "" } = {}) {
   const h = ratio ? Math.round(w / ratio) : undefined;
+  if (isLocal(id)) {
+    const style = ratio ? ` style="aspect-ratio:${ratio};object-fit:cover"` : "";
+    return `<img class="${cls}" src="${id}" alt="${esc(alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${h ? ` width="${w}" height="${h}"` : ""}${style}>`;
+  }
   const widths = [480, 800, 1200, 1600, 2200].filter((x) => x <= w * 1.4);
   const set = widths.map((x) => `${src(id, x, ratio ? Math.round(x / ratio) : undefined)} ${x}w`).join(", ");
   return `<img class="${cls}" src="${src(id, w, h)}" srcset="${set}" sizes="${sizes}" alt="${esc(alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${h ? ` width="${w}" height="${h}"` : ""}>`;
@@ -222,6 +229,7 @@ ${footer(r)}
   <div class="modal" data-modal hidden>
     <button class="modal-close" type="button" data-modal-close aria-label="Video sluiten">✕</button>
     <video data-modal-video controls playsinline preload="none"></video>
+    <iframe data-modal-embed title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen hidden></iframe>
   </div>
   <script src="${r}assets/vendor/motion.js"></script>
   <script src="${r}assets/js/site.js"></script>
@@ -460,11 +468,16 @@ function casePage(c, i) {
   </section>
   <section class="case-film">
     <div class="wrap">
-      <button class="film-frame" type="button" data-play="${site.heroVideo}" data-cursor-label="Afspelen" aria-label="Video van ${esc(c.client)} afspelen">
+      ${c.video
+        ? `<button class="film-frame" type="button" data-play="${esc(c.video)}" data-cursor-label="Afspelen" aria-label="Video van ${esc(c.client)} afspelen">
         ${img(c.gallery[0], "", { w: 2000, ratio: 16 / 9, sizes: "(min-width: 1400px) 1320px, 94vw" })}
         <span class="film-play">${play}</span>
         <span class="film-hud mono"><span class="rec-dot"></span> ${esc(c.client.toUpperCase())} · ${c.year}</span>
-      </button>
+      </button>`
+        : `<figure class="film-frame is-still">
+        ${img(c.gallery[0], `${esc(c.client)}`, { w: 2000, ratio: 16 / 9, sizes: "(min-width: 1400px) 1320px, 94vw" })}
+        <span class="film-hud mono"><span class="rec-dot"></span> ${esc(c.client.toUpperCase())} · ${c.year}</span>
+      </figure>`}
     </div>
   </section>
   <section class="section gallery">
