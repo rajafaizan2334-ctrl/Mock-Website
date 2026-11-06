@@ -390,6 +390,22 @@ export const services = [
 
 export const cases = [
   {
+    slug: "fish-potato-run-2026",
+    title: "Fish Potato Run: *Urk in beweging*",
+    client: "Fish Potato Run",
+    category: "video",
+    services: ["aftermovies"],
+    year: "2026",
+    img: "/assets/media/cases/fish-potato-run/still-78.jpg",
+    gallery: ["/assets/media/cases/fish-potato-run/still-30.jpg", "/assets/media/cases/fish-potato-run/still-90.jpg", "/assets/media/cases/fish-potato-run/still-102.jpg"],
+    video: "/assets/media/cases/fish-potato-run/aftermovie.mp4",
+    real: true,
+    summary: "De aftermovie van de Fish Potato Run 2026: van de start en de route door Urk tot de supporters langs de kant en de finish.",
+    vraag: "De organisatie wilde de editie van 2026 vastleggen in een aftermovie die de sfeer van de dag laat voelen, voor de lopers, de supporters en de partners van het evenement.",
+    aanpak: "We filmden de hele dag, met camera's langs de route en een drone boven de haven en de straten van Urk. Van de lopers aan de start tot de supporters met spandoeken en de emotie bij de finish. In de montage brachten we alles samen op het ritme van de muziek.",
+    resultaat: "Een aftermovie van ruim twee minuten in 4K, klaar voor de website en social media van het evenement.",
+  },
+  {
     slug: "hartman-seatrade-deo-volente",
     title: "Deo Volente: *terug in het water*",
     client: "Hartman Seatrade",
