@@ -10,8 +10,8 @@ export const site = {
   // Placeholder until his own portrait arrives (Unsplash id or later a local file).
   ownerPhoto: "1520390138845-fd2d229dd553",
   chatWebhook: "https://n8n.axonnmatrix.tech/webhook/dbd7eabd-1c12-44ad-8fc7-78be6fbbe16b",
-  heroVideo: "https://assets.mixkit.co/videos/40897/40897-720.mp4",
-  heroPoster: "1478720568477-152d9b164e26",
+  heroVideo: "/assets/media/home/header.mp4",
+  heroPoster: "/assets/media/home/poster.jpg",
 };
 
 export const pillars = [
@@ -389,6 +389,22 @@ export const services = [
 ];
 
 export const cases = [
+  {
+    slug: "hartman-seatrade-deo-volente",
+    title: "Deo Volente: *terug in het water*",
+    client: "Hartman Seatrade",
+    category: "video",
+    services: ["short-form-content"],
+    year: "2026",
+    img: "/assets/media/cases/hartman-seatrade/reel3-water-17.jpg",
+    gallery: ["/assets/media/cases/hartman-seatrade/reel1-kranen-22.jpg", "/assets/media/cases/hartman-seatrade/reel3-water-12.jpg", "/assets/media/cases/hartman-seatrade/reel3-water-22.jpg"],
+    video: "/assets/media/cases/hartman-seatrade/reel3-water.mp4",
+    real: true,
+    summary: "Een reeks verticale reels over het schip Deo Volente: van het werk aan de kranen tot het moment dat het schip weer te water gaat.",
+    vraag: "Hartman Seatrade wilde het werk aan de Deo Volente laten zien op social media, op een manier die past bij hoe snel mensen door hun feed scrollen.",
+    aanpak: "We filmden op en rond het schip: de bemanning aan het werk, de kranen aan boord en vanuit de lucht het droogdok en de haven. In de montage maakten we er korte, dynamische reels van in 9:16.",
+    resultaat: "Een serie reels voor Instagram, TikTok en LinkedIn, met onder meer 'Kranen' en 'Terug in het water'.",
+  },
   {
     slug: "havenfestival-aftermovie",
     title: "Een festival in *drie minuten*",
