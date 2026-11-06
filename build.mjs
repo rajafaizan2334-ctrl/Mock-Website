@@ -287,8 +287,8 @@ function homePage() {
   const r = "";
   const featured = cases.slice(0, 6);
   const marquee = services.map((s) => `<span>${esc(s.title)}</span><span class="star">✦</span>`).join("");
-  const manifest =
-    "Wij zijn Captain Media. We maken video's, foto's en ontwerpen die niet alleen mooi zijn, maar ook iets doen: opvallen, overtuigen en blijven hangen. Alles onder één dak, in één stijl, van draaiboek tot drukproef.";
+  const intro =
+    "Ik ben Jacob-Wouter Kaptijn, het gezicht achter Captain Media. Sinds 2016 help ik bedrijven om te laten zien wie ze zijn, wat ze doen en wat ze te bieden hebben, met video, fotografie, design en slimme AI-oplossingen.";
   const body = `
   <section class="hero" data-hero>
     <div class="hero-media">
@@ -317,45 +317,48 @@ function homePage() {
     </div>
   </section>
 
-  <section class="section manifest">
-    <div class="wrap">
-      <p class="eyebrow" data-reveal>Over Captain Media</p>
-      <p class="manifest-text" data-words>${manifest
-        .split(" ")
-        .map((w) => `<span>${esc(w)}</span>`)
-        .join(" ")}</p>
+  <section class="section intro">
+    <div class="wrap intro-grid">
+      <figure class="intro-photo" data-reveal>
+        ${img(site.ownerPhoto, site.owner, { w: 900, ratio: 4 / 5, sizes: "(min-width: 900px) 34vw, 90vw" })}
+        <figcaption><strong>${esc(site.owner)}</strong><span>Oprichter Captain Media</span></figcaption>
+      </figure>
+      <div class="intro-copy">
+        <p class="eyebrow" data-reveal>Over Captain Media</p>
+        <h2 class="display-m" data-split>${split("Goed werk begint met|*goed contact.*")}</h2>
+        <p class="lead" data-reveal>${esc(intro)}</p>
+        <p data-reveal>Je spreekt rechtstreeks met mij, van het eerste idee tot de oplevering. Korte lijnen, eerlijk advies en werk dat bij jouw bedrijf past.</p>
+        <a class="link-arrow" href="over-ons.html" data-reveal>Meer over mij ${arrowRight}</a>
+      </div>
     </div>
   </section>
 
   <section class="section disciplines">
     <div class="wrap">
-      <div class="section-head split-head">
-        <div>
-          <p class="eyebrow" data-reveal>Wat we doen</p>
-          <h2 class="display-l" data-split>${split("Vier disciplines.|*Eén* team.")}</h2>
-        </div>
-        <a class="link-arrow" href="diensten.html" data-reveal>Alle diensten ${arrowRight}</a>
+      <div class="section-head center-head">
+        <p class="eyebrow" data-reveal>Wat we doen</p>
+        <h2 class="display-m" data-split>${split("Vier disciplines.|*Eén* team.")}</h2>
+        <p class="lead" data-reveal>Van video en fotografie tot design en AI, alles onder één dak.</p>
       </div>
-      <ul class="disc-list" data-disc>
+      <div class="disc-cards">
         ${pillars
           .map(
             (p) => `
-        <li class="disc-row" data-reveal data-img="${src(p.img, 900, 1100)}">
-          <a href="diensten.html#${p.key}">
+        <a class="disc-card" href="diensten.html#${p.key}" data-reveal>
+          <div class="disc-card-media">${img(p.img, "", { w: 700, ratio: 4 / 3, sizes: "(min-width: 1100px) 24vw, (min-width: 640px) 46vw, 92vw" })}</div>
+          <div class="disc-card-body">
             <span class="mono disc-no">${p.no}</span>
-            <span class="disc-title">${p.title}</span>
-            <span class="disc-tags">${services
+            <h3>${p.title}</h3>
+            <span class="disc-card-tags">${services
               .filter((s) => s.pillar === p.key)
-              .map((s) => `<span>${esc(s.title)}</span>`)
-              .join("")}</span>
-            <span class="disc-arrow">${arrow}</span>
-          </a>
-          <div class="disc-mobile-img">${img(p.img, p.title, { w: 900, ratio: 16 / 10, sizes: "90vw" })}</div>
-        </li>`
+              .map((s) => esc(s.title))
+              .join(" · ")}</span>
+          </div>
+        </a>`
           )
           .join("")}
-      </ul>
-      <div class="disc-preview" data-disc-preview aria-hidden="true"><img alt=""></div>
+      </div>
+      <div class="disc-more" data-reveal><a class="link-arrow" href="diensten.html">Alle diensten ${arrowRight}</a></div>
     </div>
   </section>
 

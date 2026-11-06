@@ -6,6 +6,9 @@ export const site = {
   phoneHref: "+31634018819",
   whatsapp: "https://wa.me/31634018819",
   // n8n Chat Trigger webhook URL for the AI assistant. Empty = chat widget hidden.
+  owner: "Jacob-Wouter Kaptijn",
+  // Placeholder until his own portrait arrives (Unsplash id or later a local file).
+  ownerPhoto: "1520390138845-fd2d229dd553",
   chatWebhook: "https://n8n.axonnmatrix.tech/webhook/dbd7eabd-1c12-44ad-8fc7-78be6fbbe16b",
   heroVideo: "https://assets.mixkit.co/videos/40897/40897-720.mp4",
   heroPoster: "1478720568477-152d9b164e26",
