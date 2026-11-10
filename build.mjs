@@ -161,9 +161,6 @@ function footer(r) {
   return `
   <footer class="site-footer">
     <div class="wrap">
-      <a class="footer-big" href="${r}contact.html" data-magnetic>
-        <span>Laten we</span> <em>draaien</em> ${arrow}
-      </a>
       <div class="footer-grid">
         <div>
           <img class="footer-logo" src="${r}assets/img/captain-media-logo.png" alt="Captain Media" width="623" height="168" loading="lazy">

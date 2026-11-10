@@ -573,3 +573,6 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 @media (max-width: 900px) { .story-alt .story-media { order: -1; } }
 .story-grid .display-l { margin-bottom: 28px; }
 .story-grid p:not(.eyebrow) + p { margin-top: 14px; }
+
+/* footer without the big headline */
+.site-footer { padding-top: clamp(56px, 6vw, 80px) !important; }
