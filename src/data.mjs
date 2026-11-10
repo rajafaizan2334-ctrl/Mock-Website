@@ -220,6 +220,30 @@ export const services = [
   },
   {
     pillar: "design",
+    slug: "webdesign",
+    title: "Webdesign",
+    heading: "Web*design*",
+    menu: "Websites die aanvragen opleveren",
+    short: "Een website waarop bezoekers makkelijk vinden wat ze zoeken én contact opnemen.",
+    intro:
+      "Je website werkt dag en nacht voor je bedrijf. We ontwerpen en bouwen websites die er sterk uitzien, snel laden en bezoekers stap voor stap naar contact leiden. Met je eigen beeld en video, heldere teksten en een structuur die ook Google begrijpt. Zo trekt mooi werk niet alleen aandacht, maar levert het ook aanvragen op.",
+    deliverables: [
+      "Structuur & ontwerp op maat",
+      "Responsive: perfect op mobiel",
+      "Eigen foto en video verwerkt",
+      "Animaties die aandacht vasthouden",
+      "Contactformulier & WhatsApp-knop",
+      "SEO-basis en snelle laadtijd",
+    ],
+    faqs: [
+      ["Kan ik de website zelf aanpassen?", "Ja. We bouwen in WordPress of een vergelijkbaar systeem, zodat je teksten en foto's zelf kunt bijwerken. We leggen je uit hoe het werkt."],
+      ["Kunnen jullie mijn bestaande website vernieuwen?", "Zeker. We behouden wat goed werkt, zoals je vindbaarheid in Google, en geven de rest een frisse, moderne uitstraling."],
+      ["Regelen jullie ook hosting en onderhoud?", "We adviseren een passende hosting en kunnen het technisch onderhoud en updates voor je verzorgen."],
+    ],
+    img: "/assets/img/webdesign.jpg",
+  },
+  {
+    pillar: "design",
     slug: "verpakkingsontwerp",
     title: "Verpakkingsontwerp",
     heading: "Verpakkings*ontwerp*",
