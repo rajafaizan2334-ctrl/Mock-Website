@@ -653,17 +653,6 @@ function contactPage() {
           <div class="chips">${options}</div>
         </fieldset>
         <div class="field">
-          <label for="f-budget">Indicatie budget</label>
-          <select id="f-budget" name="budget">
-            <option value="">Maak een keuze</option>
-            <option>Tot € 2.500</option>
-            <option>€ 2.500 – € 5.000</option>
-            <option>€ 5.000 – € 10.000</option>
-            <option>Meer dan € 10.000</option>
-            <option>Weet ik nog niet</option>
-          </select>
-        </div>
-        <div class="field">
           <label for="f-bericht">Vertel kort over je project</label>
           <textarea id="f-bericht" name="bericht" rows="5" required></textarea>
           <p class="err" id="e-bericht">Vertel ons kort wat je wilt maken.</p>

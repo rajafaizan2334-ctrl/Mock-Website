@@ -34,7 +34,7 @@
   launcher.className = "cm-chat-launch";
   launcher.setAttribute("aria-label", "Open de AI-assistent");
   launcher.setAttribute("aria-expanded", "false");
-  launcher.innerHTML = ico.chat + '<span>Vraag het onze AI</span>';
+  launcher.innerHTML = ico.chat + '<span>Vraag het onze AI-assistent</span>';
 
   var panel = document.createElement("section");
   panel.className = "cm-chat";
