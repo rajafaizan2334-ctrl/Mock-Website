@@ -72,7 +72,7 @@ export const services = [
       ["Wat kost een bedrijfsfilm?", "Elke film is maatwerk. Na een kennismaking krijg je een heldere offerte met een vaste prijs, zodat je vooraf weet waar je aan toe bent."],
       ["Hoeveel feedbackrondes zijn inbegrepen?", "Standaard twee correctierondes op de montage. Zo houden we het proces overzichtelijk en het resultaat scherp."],
     ],
-    img: "1504307651254-35680f356dfd",
+    img: "/assets/media/home/poster.jpg",
   },
   {
     pillar: "video",
@@ -96,7 +96,7 @@ export const services = [
       ["Plaatsen jullie de content ook?", "We leveren kant-en-klare video's met suggesties voor captions. Plaatsen en community management doe je zelf of met je marketingpartner."],
       ["Kunnen we maandelijks samenwerken?", "Ja. Veel klanten kiezen voor een vaste contentdag per maand, zodat er altijd nieuwe video's klaarstaan."],
     ],
-    img: "1586953208448-b95a79798f07",
+    img: "/assets/media/cases/hartman-seatrade/reel3-water-12.jpg",
   },
   {
     pillar: "video",
@@ -120,7 +120,7 @@ export const services = [
       ["Kunnen jullie ook de vacature-uiting ontwerpen?", "Zeker. Ons designteam maakt bijpassende vacatureposters en social visuals, in dezelfde stijl als de video."],
       ["Waar gebruik je een wervingsvideo?", "Op je werken-bij-pagina, in vacatures op LinkedIn en Indeed en als advertentie op social media."],
     ],
-    img: "1521737604893-d14cc237f11d",
+    img: "/assets/media/cases/hartman-seatrade/reel1-kranen-22.jpg",
   },
   {
     pillar: "video",
@@ -144,7 +144,7 @@ export const services = [
       ["Hoeveel videografen hebben we nodig?", "Dat hangt af van de omvang van het event. Voor de meeste evenementen werken we met één of twee videografen."],
       ["Filmen jullie ook buiten Nederland?", "Ja, neem contact op voor de mogelijkheden."],
     ],
-    img: "1551818255-e6e10975bc17",
+    img: "/assets/media/cases/fish-potato-run/still-30.jpg",
   },
   {
     pillar: "fotografie",
@@ -168,7 +168,7 @@ export const services = [
       ["Waarvoor mogen we de foto's gebruiken?", "In de offerte leggen we vast hoe je de beelden mag gebruiken. Meestal is dat onbeperkt voor je eigen communicatie."],
       ["Kunnen foto en video op dezelfde dag?", "Ja, en dat is vaak efficiënt. Fotograaf en videograaf werken dan samen op één productiedag."],
     ],
-    img: "1556761175-5973dc0f32e7",
+    img: "/assets/media/cases/hartman-seatrade/reel3-water-17.jpg",
   },
   {
     pillar: "fotografie",
@@ -336,7 +336,7 @@ export const services = [
       ["Wat kost een AI chatbot?", "Je betaalt een eenmalig bedrag voor de inrichting en daarna een vast bedrag per maand voor hosting, AI-gebruik en onderhoud. Zo weet je vooraf precies waar je aan toe bent."],
       ["Hoe zit het met privacy?", "We werken AVG-proof: bezoekers zien dat ze met een AI-assistent praten en gegevens worden alleen gebruikt voor het afhandelen van hun vraag."],
     ],
-    img: "1525547719571-a2d4ac8945e2",
+    img: "/assets/img/ai-chatbot.jpg",
   },
   {
     pillar: "ai",

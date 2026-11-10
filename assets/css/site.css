@@ -581,3 +581,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .cases-grid { align-items: start; }
 .cases-grid .case-media { aspect-ratio: 4 / 5; overflow: hidden; }
 .cases-grid .case-media img { width: 100%; height: 100%; object-fit: cover; }
+
+/* contact form: inputs never wider than the screen */
+.brief, .brief .field, .field-row > * { min-width: 0; }
+.brief input:not([type=checkbox]):not([type=radio]), .brief select, .brief textarea { width: 100%; max-width: 100%; box-sizing: border-box; }
+.chip { position: relative; overflow: hidden; }
+.chip input { position: absolute; inset: 0; width: 100% !important; height: 100%; margin: 0; opacity: 0; cursor: pointer; }

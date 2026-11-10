@@ -1,7 +1,9 @@
 import { mkdirSync, writeFileSync, copyFileSync, cpSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { site, pillars, services, cases, steps } from "./src/data.mjs";
+import { site, pillars, services, cases as allCases, steps } from "./src/data.mjs";
+// Only real cases go live; example cases stay in data.mjs (real: false) until replaced.
+const cases = allCases.filter((c) => c.real);
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 
@@ -189,7 +191,6 @@ function footer(r) {
       </div>
       <div class="footer-bottom">
         <span>© ${new Date().getFullYear()} Captain Media</span>
-        <span class="mono">Conceptontwerp: beelden en cases zijn voorbeeldcontent</span>
       </div>
     </div>
   </footer>
