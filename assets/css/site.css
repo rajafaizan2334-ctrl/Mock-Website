@@ -566,3 +566,10 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .hero-content { padding-top: calc(var(--header-h) + 80px); }
 .hero-bottom { margin-top: clamp(20px, 2.6vw, 32px); }
 @media (max-width: 560px) { .display-hero { font-size: clamp(40px, 11vw, 52px); } }
+
+/* about page: second story block (text left, portrait right) sits on the alternate surface */
+.story-alt { background: var(--surface-2, rgba(255,255,255,.03)); }
+.value p { line-height: 1.65; }
+@media (max-width: 900px) { .story-alt .story-media { order: -1; } }
+.story-grid .display-l { margin-bottom: 28px; }
+.story-grid p:not(.eyebrow) + p { margin-top: 14px; }

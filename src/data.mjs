@@ -8,7 +8,7 @@ export const site = {
   // n8n Chat Trigger webhook URL for the AI assistant. Empty = chat widget hidden.
   owner: "Jacob-Wouter Kaptijn",
   // Placeholder until his own portrait arrives (Unsplash id or later a local file).
-  ownerPhoto: "1520390138845-fd2d229dd553",
+  ownerPhoto: "/assets/img/jacob-wouter.jpg",
   chatWebhook: "https://n8n.axonnmatrix.tech/webhook/dbd7eabd-1c12-44ad-8fc7-78be6fbbe16b",
   heroVideo: "/assets/media/home/header.mp4",
   heroPoster: "/assets/media/home/poster.jpg",

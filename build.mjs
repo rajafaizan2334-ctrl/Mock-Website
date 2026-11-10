@@ -594,31 +594,44 @@ function servicePage(s) {
 function overPage() {
   const r = "";
   const body = `
-  ${pageHero({ eyebrow: "Over ons", title: "Verhalen vertellen|*in beeld*", text: "Captain Media is een creatieve studio voor video, fotografie en grafisch ontwerp. We helpen bedrijven, organisaties en merken om op te vallen, met beelden die kloppen en blijven hangen.", r, image: "1492691527719-9d1e07e534b4" })}
+  ${pageHero({ eyebrow: "Over ons", title: "Goed werk begint|met *begrijpen*", text: "Ik ben Jacob-Wouter Kaptijn, het gezicht achter Captain Media. Goed werk begint met begrijpen wat jouw bedrijf nodig heeft.", r, image: "/assets/img/about-hero.jpg" })}
   <section class="section story">
     <div class="wrap story-grid">
-      <div class="story-media" data-parallax>${img("1520390138845-fd2d229dd553", "Fotograaf met camera", { w: 1200, ratio: 4 / 5, sizes: "(min-width: 900px) 40vw, 94vw" })}</div>
+      <div class="story-media" data-parallax>${img("/assets/img/about-on-set.jpg", "Jacob-Wouter Kaptijn met camera op een opnamelocatie", { w: 1200, ratio: 4 / 5, sizes: "(min-width: 900px) 40vw, 94vw" })}</div>
       <div>
-        <p class="eyebrow" data-reveal>Ons verhaal</p>
-        <h2 class="display-l" data-split>${split("Kapitein van *je beeld*")}</h2>
-        <p class="intro-text" data-reveal>We geloven dat goede beelden meer doen dan mooi zijn. Ze vertellen wie je bent, laten zien wat je kunt en zorgen dat mensen kiezen voor jou.</p>
-        <p data-reveal>Daarom combineren we drie disciplines onder één dak. De videograaf, fotograaf en ontwerper werken samen aan hetzelfde verhaal, met dezelfde blik. Dat scheelt je tijd en afstemming, en het resultaat is herkenbaar op elk kanaal.</p>
+        <p class="eyebrow" data-reveal>Wie ik ben</p>
+        <h2 class="display-l" data-split>${split("Het gezicht achter *Captain Media*")}</h2>
+        <p class="intro-text" data-reveal>Sinds 2016 ben ik bezig met beeld en vormgeving. Wat mij daarin het meeste aanspreekt? Iets maken dat een bedrijf verder helpt.</p>
+        <p data-reveal> Een website die meer aanvragen oplevert, video’s die de juiste mensen bereiken of een slimmer proces dat iedere week tijd bespaart.</p>
+        <p data-reveal>Daarom kijk ik graag verder dan de opdracht alleen. Hoe komen klanten bij je terecht? Wat overtuigt hen om voor jou te kiezen? En waar blijven kansen liggen? Ik leer jouw bedrijf graag kennen, denk persoonlijk mee en maak de vertaalslag naar concrete verbeteringen.</p>
       </div>
     </div>
   </section>
   <section class="section values">
     <div class="wrap">
-      <div class="section-head"><p class="eyebrow" data-reveal>Waar we voor staan</p><h2 class="display-l" data-split>${split("Drie *principes*")}</h2></div>
+      <div class="section-head"><p class="eyebrow" data-reveal>Wat ik doe</p><h2 class="display-l" data-split>${split("Van een sterkere uitstraling|naar *meer resultaat*")}</h2></div>
       <div class="values-grid">
-        <div class="value" data-reveal data-tilt><span class="mono">01</span><h3>Sterk in beeld</h3><p>Licht, compositie en ritme: we behandelen elk project als een film, ook een portret of productfoto.</p></div>
-        <div class="value" data-reveal data-tilt><span class="mono">02</span><h3>Scherp in ontwerp</h3><p>Ontwerp dat niet alleen mooi is, maar ook klopt: leesbaar, drukklaar en afgestemd op je doel.</p></div>
-        <div class="value" data-reveal data-tilt><span class="mono">03</span><h3>Recht door zee</h3><p>Duidelijke afspraken, een vaste prijs vooraf en altijd bereikbaar. Zo houden we de koers.</p></div>
+        <div class="value" data-reveal data-tilt><span class="mono">01</span><h3>Zichtbaar worden</h3><p>Met video, fotografie, design en websites help ik bedrijven om zichtbaar te worden en hun verhaal duidelijk over te brengen. Van korte video’s voor social media en bedrijfsfotografie tot verpakkingen en een website waarop bezoekers makkelijk vinden wat ze zoeken én contact opnemen.</p></div>
+        <div class="value" data-reveal data-tilt><span class="mono">02</span><h3>Het doel voor ogen</h3><p>Meer passende aanvragen, nieuwe klanten en ruimte om te groeien. Mooi werk trekt aandacht; de inhoud en de uitwerking moeten vervolgens helpen om die aandacht om te zetten in actie.</p></div>
+        <div class="value" data-reveal data-tilt><span class="mono">03</span><h3>Slim achter de schermen</h3><p>Met praktische AI-oplossingen en automatiseringen kunnen we terugkerende taken vereenvoudigen, klantvragen sneller afhandelen en processen beter laten aansluiten. Zo blijft er meer tijd over voor jouw klanten en het ondernemen zelf.</p></div>
       </div>
+    </div>
+  </section>
+  <section class="section story story-alt">
+    <div class="wrap story-grid">
+      <div>
+        <p class="eyebrow" data-reveal>Samenwerken</p>
+        <h2 class="display-l" data-split>${split("Persoonlijk betrokken, *met korte lijnen*")}</h2>
+        <p class="intro-text" data-reveal>Ik houd van laagdrempelig contact.</p>
+        <p data-reveal>Even bellen, een appje sturen of samen aan tafel om ideeën door te nemen. Je spreekt rechtstreeks met mij en hoeft geen uitgewerkt plan klaar te hebben. Vertel waar je naartoe wilt of waar je tegenaan loopt, dan kijken we samen wat er nodig is.</p>
+        <p data-reveal>Ik stel vragen, geef eerlijk advies en denk ook mee over kansen die buiten de oorspronkelijke opdracht liggen. Het liefst bouw ik aan een langdurige samenwerking waarin ik jouw bedrijf steeds beter leer kennen en gericht kan bijdragen aan de volgende stap.</p>
+      </div>
+      <div class="story-media" data-parallax>${img("/assets/img/jacob-wouter.jpg", "Jacob-Wouter Kaptijn, oprichter van Captain Media", { w: 1200, ratio: 4 / 5, sizes: "(min-width: 900px) 40vw, 94vw" })}</div>
     </div>
   </section>
   ${stepsBlock()}
   ${ctaBlock(r, "Zullen we *kennismaken?*")}`;
-  return layout({ title: "Over ons | Captain Media", desc: "Captain Media is een creatieve studio voor video, fotografie en grafisch ontwerp.", current: "over", body });
+  return layout({ title: "Over ons | Captain Media", desc: "Ik ben Jacob-Wouter Kaptijn, het gezicht achter Captain Media. Video, fotografie, design, websites en slimme automatiseringen die je bedrijf verder helpen.", current: "over", body });
 }
 
 function contactPage() {
