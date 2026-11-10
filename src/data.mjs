@@ -21,7 +21,7 @@ export const pillars = [
     title: "Video",
     lead: "Films die blijven hangen",
     text: "Van bedrijfsfilm tot Reel: we schrijven, draaien en monteren video die je verhaal in seconden duidelijk maakt.",
-    img: "1598899134739-24c46f58b8c0",
+    img: "/assets/media/home/poster.jpg",
   },
   {
     key: "fotografie",
@@ -29,7 +29,7 @@ export const pillars = [
     title: "Fotografie",
     lead: "Beelden met karakter",
     text: "Echte foto's van je mensen, je werkplek en je producten, in een stijl die je jarenlang kunt gebruiken.",
-    img: "1542038784456-1ea8e935640e",
+    img: "/assets/img/fotografie-schilder.jpg",
   },
   {
     key: "design",
@@ -37,7 +37,7 @@ export const pillars = [
     title: "Design",
     lead: "Ontwerp dat je kunt vastpakken",
     text: "Verpakkingen, drukwerk en campagnes die opvallen in het schap, op de muur en in de feed.",
-    img: "1561070791-2526d30994b5",
+    img: "/assets/img/design-brochure.jpg",
   },
   {
     key: "ai",
@@ -168,7 +168,7 @@ export const services = [
       ["Waarvoor mogen we de foto's gebruiken?", "In de offerte leggen we vast hoe je de beelden mag gebruiken. Meestal is dat onbeperkt voor je eigen communicatie."],
       ["Kunnen foto en video op dezelfde dag?", "Ja, en dat is vaak efficiënt. Fotograaf en videograaf werken dan samen op één productiedag."],
     ],
-    img: "/assets/media/cases/hartman-seatrade/reel3-water-17.jpg",
+    img: "/assets/img/bedrijfsfotografie.jpg",
   },
   {
     pillar: "fotografie",
@@ -192,7 +192,7 @@ export const services = [
       ["Komen jullie naar ons kantoor?", "Ja. Met een mobiele studio richten we een vergaderruimte in als volwaardige set."],
       ["Wat trek ik aan?", "Draag wat bij je past en wat je ook op je werk draagt. Effen kleuren werken het best. Vooraf krijg je een korte checklist."],
     ],
-    img: "1500648767791-00dcc994a43e",
+    img: "/assets/img/portretten.jpg",
   },
   {
     pillar: "fotografie",
@@ -216,7 +216,7 @@ export const services = [
       ["Maken jullie ook productvideo's?", "Ja. Combineer je shoot met korte productvideo's voor social en je webshop."],
       ["Leveren jullie aan voor Bol.com en Amazon?", "Ja, we leveren aan volgens de eisen van de marketplaces die je gebruikt."],
     ],
-    img: "1572635196237-14b3f281503f",
+    img: "/assets/img/productfotografie.jpg",
   },
   {
     pillar: "design",
@@ -264,7 +264,7 @@ export const services = [
       ["Hoeveel ontwerprichtingen krijgen we?", "Meestal twee of drie. Op basis van jouw keuze werken we er één volledig uit."],
       ["Kunnen jullie een bestaand ontwerp vernieuwen?", "Zeker. We houden de herkenbaarheid vast en tillen het ontwerp naar een hoger niveau."],
     ],
-    img: "1608571423902-eed4a5ad8108",
+    img: "/assets/img/verpakkingsontwerp.jpg",
   },
   {
     pillar: "design",
@@ -288,7 +288,7 @@ export const services = [
       ["Schrijven jullie ook de teksten?", "We helpen met redactie en korte teksten. Voor uitgebreide copywriting werken we samen met tekstschrijvers."],
       ["In welke formaten leveren jullie aan?", "Drukklare pdf's volgens de specificaties van je drukker, plus een lichte versie voor online gebruik."],
     ],
-    img: "1561070791-2526d30994b5",
+    img: "/assets/img/drukwerk.jpg",
   },
   {
     pillar: "design",
@@ -312,7 +312,7 @@ export const services = [
       ["Kan een vacature-uiting samen met een wervingsvideo?", "Ja, daar zijn we juist sterk in: één campagnelijn in video, foto en design."],
       ["Leveren jullie ook formaten voor social media?", "Ja, elke uiting leveren we ook aan in formaten voor Instagram, LinkedIn en Facebook."],
     ],
-    img: "1626785774573-4b799315345d",
+    img: "/assets/img/flyers-lootjes.jpg",
   },
   {
     pillar: "ai",
