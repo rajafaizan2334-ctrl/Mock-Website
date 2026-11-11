@@ -558,6 +558,30 @@ function servicePage(s) {
       </ul>
     </div>
   </section>
+  ${
+    s.projects
+      ? `<section class="section projects">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow" data-reveal>Recente projecten</p><h2 class="display-l" data-split>${split(s.projects.length > 1 ? "Websites die we *bouwden*" : "Een webshop die we *bouwden*")}</h2></div>
+      <div class="proj-grid${s.projects.length === 1 ? " proj-grid--one" : ""}">
+        ${s.projects.map((x) => `<a class="proj-card" href="${x.url}" target="_blank" rel="noopener" data-reveal><span class="proj-media">${img(x.img, `Website ${x.name}`, { w: 1400, ratio: 16 / 10, sizes: "(min-width: 900px) 46vw, 94vw" })}</span><span class="proj-info"><span><strong>${esc(x.name)}</strong><small>${esc(x.text)}</small></span><span class="proj-url mono">${esc(x.url.replace(/^https?:\/\//, ""))} ${arrowRight}</span></span></a>`).join("")}
+      </div>
+    </div>
+  </section>`
+      : ""
+  }
+  ${
+    s.gallery
+      ? `<section class="section work">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow" data-reveal>Voorbeelden</p><h2 class="display-l" data-split>${split("Uit eigen *werk*")}</h2></div>
+      <div class="work-grid">
+        ${s.gallery.map((g) => `<figure class="work-item" data-reveal><span class="work-media">${img(g.img, `${g.label} voor ${g.client}`, { w: 1000, sizes: "(min-width: 900px) 31vw, 94vw" })}</span><figcaption><strong>${esc(g.label)}</strong><span>${esc(g.client)}</span></figcaption></figure>`).join("")}
+      </div>
+    </div>
+  </section>`
+      : ""
+  }
   ${stepsBlock()}
   ${
     related.length
@@ -586,7 +610,7 @@ function servicePage(s) {
     </div>
   </section>
   ${ctaBlock(r)}`;
-  return layout({ title: `${s.title} | Captain Media`, desc: `${s.short} ${s.title} door Captain Media.`, r, current: "diensten", body });
+  return layout({ title: `${s.pageTitle || s.title} | Captain Media`, desc: `${s.short} ${s.pageTitle || s.title} door Captain Media.`, r, current: "diensten", body });
 }
 
 function overPage() {

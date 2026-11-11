@@ -587,3 +587,25 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spa
 .brief input:not([type=checkbox]):not([type=radio]), .brief select, .brief textarea { width: 100%; max-width: 100%; box-sizing: border-box; }
 .chip { position: relative; overflow: hidden; }
 .chip input { position: absolute; inset: 0; width: 100% !important; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+
+/* service pages: recent website/webshop projects + design examples */
+.proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 36px); }
+.proj-grid--one { grid-template-columns: 1fr; max-width: 980px; }
+.proj-card { display: block; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--bg-2, #111); transition: border-color 0.4s var(--ease), transform 0.6s var(--ease); }
+.proj-card:hover { border-color: rgba(255, 255, 255, 0.28); transform: translateY(-4px); }
+.proj-media { display: block; overflow: hidden; aspect-ratio: 16 / 10; }
+.proj-media img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 1.2s var(--ease); }
+.proj-card:hover .proj-media img { transform: scale(1.04); }
+.proj-info { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 20px 22px 22px; }
+.proj-info strong { display: block; font-size: 1.15rem; }
+.proj-info small { display: block; opacity: 0.65; margin-top: 4px; font-size: 0.9rem; }
+.proj-url { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; opacity: 0.75; white-space: nowrap; }
+.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 28px); }
+.work-item { margin: 0; }
+.work-media { display: block; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; background: var(--bg-3); }
+.work-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.work-item:hover .work-media img { transform: scale(1.05); }
+.work-item figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 0.92rem; }
+.work-item figcaption span { opacity: 0.6; }
+@media (max-width: 900px) { .proj-grid, .work-grid { grid-template-columns: 1fr; } .work-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .work-grid { grid-template-columns: 1fr; } .proj-info { flex-direction: column; align-items: flex-start; } }
