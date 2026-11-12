@@ -409,9 +409,23 @@
         document.getElementById(firstBad[0]).focus();
         return;
       }
-      const ok = $(".form-success", form);
-      ok.hidden = false;
-      if (!reduced) animate(ok, { opacity: [0, 1] }, { duration: 0.5 });
+      // send to the server; only show the thank-you when the message really went out
+      const btn = form.querySelector('button[type="submit"]');
+      const err = $(".form-error", form);
+      const fd = new FormData(form);
+      const diensten = fd.getAll("dienst");
+      fd.delete("dienst"); fd.set("dienst", diensten.join(", "));
+      btn.disabled = true; if (err) err.hidden = true;
+      fetch(form.getAttribute("action") || "contact-verzenden.php", { method: "POST", body: fd, headers: { Accept: "application/json" } })
+        .then((r) => r.json().then((j) => ({ ok: r.ok && j.ok })))
+        .catch(() => ({ ok: false }))
+        .then(({ ok: sent }) => {
+          btn.disabled = false;
+          if (!sent) { if (err) err.hidden = false; return; }
+          const ok = $(".form-success", form);
+          ok.hidden = false;
+          if (!reduced) animate(ok, { opacity: [0, 1] }, { duration: 0.5 });
+        });
     });
   }
 

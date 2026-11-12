@@ -663,7 +663,7 @@ function contactPage() {
   ${pageHero({ eyebrow: "Contact", title: "Vertel ons je *verhaal*", text: "Vul het draaiboek hieronder in, of stuur direct een WhatsApp. Binnen één werkdag hoor je van ons.", r })}
   <section class="section contact">
     <div class="wrap contact-grid">
-      <form class="brief" data-form novalidate>
+      <form class="brief" data-form novalidate action="contact-verzenden.php" method="post">
         <div class="brief-top"><span class="mono">Draaiboek · nieuw project</span><span class="mono" data-timecode-static>SCÈNE 01</span></div>
         <div class="field-row">
           <div class="field"><label for="f-naam">Naam</label><input id="f-naam" name="naam" autocomplete="name" required><p class="err" id="e-naam">Vul je naam in.</p></div>
@@ -682,7 +682,9 @@ function contactPage() {
           <textarea id="f-bericht" name="bericht" rows="5" required></textarea>
           <p class="err" id="e-bericht">Vertel ons kort wat je wilt maken.</p>
         </div>
+        <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
         <button class="btn btn-accent btn-block" type="submit">Verstuur draaiboek ${arrow}</button>
+        <p class="form-error" role="alert" hidden>Versturen lukte niet. Stuur je bericht via <a href="https://wa.me/31634018819">WhatsApp</a> of mail naar <a href="mailto:info@captain-media.nl">info@captain-media.nl</a>.</p>
         <div class="form-success" role="status" hidden>
           <h3>Bedankt, <em>we gaan aan de slag.</em></h3>
           <p>Je bericht is ontvangen. Binnen één werkdag nemen we contact met je op.</p>
@@ -730,7 +732,7 @@ console.log(`Built ${4 + cases.length + services.length + 1} pages.`);
 if (process.argv.includes("--public")) {
   const out = join(ROOT, "public");
   rmSync(out, { recursive: true, force: true });
-  const entries = ["index.html", "cases.html", "diensten.html", "over-ons.html", "contact.html", "cases", "diensten", "assets"];
+  const entries = ["index.html", "cases.html", "diensten.html", "over-ons.html", "contact.html", "contact-verzenden.php", "cases", "diensten", "assets"];
   for (const e of entries) cpSync(join(ROOT, e), join(out, e), { recursive: true });
   console.log("Copied site to public/ for deployment.");
 }
