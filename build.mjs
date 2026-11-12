@@ -343,7 +343,7 @@ function homePage() {
     <div class="wrap">
       <div class="section-head center-head">
         <p class="eyebrow" data-reveal>Wat we doen</p>
-        <h2 class="display-m" data-split>${split("Vier disciplines.|*Eén* team.")}</h2>
+        <h2 class="display-m" data-split>${split("Meer dan|alleen *beeld.*")}</h2>
         <p class="lead" data-reveal>Van video en fotografie tot design en AI, alles onder één dak.</p>
       </div>
       <div class="disc-cards">
@@ -418,7 +418,7 @@ function casesPage() {
   const r = "";
   const count = (k) => cases.filter((c) => c.category === k).length;
   const body = `
-  ${pageHero({ eyebrow: "Cases", title: "Werk waar we *trots* op zijn", text: "Een selectie van onze producties in video, fotografie en design. Elk project begint met een verhaal en eindigt met beelden die werken.", r })}
+  ${pageHero({ eyebrow: "Cases", image: "/assets/media/cases/fish-potato-run/still-102.jpg", title: "Werk waar we *trots* op zijn", text: "Een selectie van onze producties in video, fotografie en design. Elk project begint met een verhaal en eindigt met beelden die werken.", r })}
   <section class="section cases-index">
     <div class="wrap">
       <div class="filters" role="group" aria-label="Filter cases" data-filters>
